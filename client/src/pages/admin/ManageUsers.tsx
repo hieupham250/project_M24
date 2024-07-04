@@ -145,6 +145,7 @@ export default function ManageUsers() {
           pageSizeOptions={[5, 10, 15]}
           checkboxSelection
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
+          disableColumnSelector={true}
         />
       </ThemeProvider>
     </div>
