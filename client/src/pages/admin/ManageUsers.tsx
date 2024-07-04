@@ -1,6 +1,5 @@
 import { DataGrid, GridRenderCellParams, viVN } from "@mui/x-data-grid";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import * as locales from "@mui/material/locale";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
@@ -15,6 +14,7 @@ import {
   updateUser,
 } from "../../services/service_user/serviceUser";
 import { useMemo } from "react";
+import { format } from "date-fns";
 
 export default function ManageUsers() {
   const theme = createTheme();
@@ -37,9 +37,9 @@ export default function ManageUsers() {
         email: user.email,
         phone: user.phone,
         gender: user.gender,
-        dayOfBirth: user.dayOfBirth,
+        dayOfBirth: format(new Date(user.dayOfBirth), "dd/MM/yyyy"),
         status: user.status ? "Không khóa" : "Khóa",
-        created_at: user.created_at,
+        created_at: format(new Date(user.created_at), "dd/MM/yyyy HH:mm:ss"),
       }));
   }, [users]);
 
@@ -49,9 +49,9 @@ export default function ManageUsers() {
     { field: "email", headerName: "Email", width: 200 },
     { field: "phone", headerName: "Số điện thoại", width: 130 },
     { field: "gender", headerName: "Giới tính", width: 80 },
-    { field: "dayOfBirth", headerName: "Ngày sinh", width: 150 },
+    { field: "dayOfBirth", headerName: "Ngày sinh", width: 100 },
     { field: "status", headerName: "Trạng thái", width: 120 },
-    { field: "created_at", headerName: "Ngày tạo", width: 100 },
+    { field: "created_at", headerName: "Ngày tạo", width: 160 },
     {
       field: "actions",
       headerName: "Chức năng",
@@ -132,17 +132,17 @@ export default function ManageUsers() {
   };
 
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 480, width: "100%" }}>
       <ThemeProvider theme={theme}>
         <DataGrid
           rows={rows}
           columns={columns}
           initialState={{
             pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
+              paginationModel: { page: 0, pageSize: 10 },
             },
           }}
-          pageSizeOptions={[5, 10, 15]}
+          pageSizeOptions={[10, 15]}
           checkboxSelection
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
           disableColumnSelector={true}
