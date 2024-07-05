@@ -2,7 +2,6 @@ import {
   AppBar,
   Avatar,
   Box,
-  Container,
   Drawer,
   IconButton,
   List,
@@ -25,12 +24,12 @@ import Swal from "sweetalert2";
 import ManageUsers from "./ManageUsers";
 
 export default function HomeAdmin() {
-  const [userAdmin, setUserAdmin] = useState<any>();
+  const [userAdminLogin, setUserAdminLogin] = useState<any>();
   const navigate = useNavigate();
   useEffect(() => {
     const userCookie = Cookies.get("user");
     if (userCookie) {
-      setUserAdmin(JSON.parse(userCookie));
+      setUserAdminLogin(JSON.parse(userCookie));
     }
   }, []);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -45,7 +44,7 @@ export default function HomeAdmin() {
 
   const handleLogout = () => {
     Cookies.remove("user");
-    setUserAdmin(null);
+    setUserAdminLogin(null);
     handleMenuClose();
     Swal.fire({
       icon: "success",
@@ -79,9 +78,12 @@ export default function HomeAdmin() {
               position: "relative",
             }}
           >
-            <Avatar src={userAdmin?.avatar} sx={{ width: 25, height: 25 }} />
+            <Avatar
+              src={userAdminLogin?.avatar}
+              sx={{ width: 25, height: 25 }}
+            />
             <Typography variant="body1" sx={{ marginLeft: 1 }}>
-              {userAdmin ? userAdmin.fullName : ""}
+              {userAdminLogin ? userAdminLogin.fullName : ""}
             </Typography>
             <IconButton color="inherit" onClick={handleMenuOpen}>
               <MoreVert />
@@ -122,11 +124,11 @@ export default function HomeAdmin() {
           </IconButton>
         </Box>
       </Drawer>
-      <Container>
+      <Box sx={{ m: 3 }}>
         <Routes>
           <Route path="users" element={<ManageUsers></ManageUsers>}></Route>
         </Routes>
-      </Container>
+      </Box>
     </>
   );
 }

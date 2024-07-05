@@ -35,3 +35,12 @@ export const deleteUser = async (id: any): Promise<AxiosResponse<any>> => {
     throw new Error(`Error fetching users: ${error}`);
   }
 };
+
+export const createUser = async (user: any): Promise<AxiosResponse<any>> => {
+  try {
+    const response = await baseUrl.post(`/users`, user);
+    return response;
+  } catch (error) {
+    throw new Error(`Error adding user: ${error}`);
+  }
+};

@@ -6,10 +6,8 @@ export interface User {
   password: string;
   address: string;
   dayOfBirth: string;
-  gender: string;
   phone: string;
   status: boolean;
   role: string;
   created_at: string; // thời gian tạo
-  updated_at: string; // thời gian cập nhật
 }
