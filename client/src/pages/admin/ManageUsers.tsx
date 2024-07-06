@@ -14,11 +14,14 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import DeleteIcon from "@mui/icons-material/Delete";
-import LockOpenIcon from "@mui/icons-material/LockOpen";
-import LockIcon from "@mui/icons-material/Lock";
-import CloseIcon from "@mui/icons-material/Close";
+import {
+  Visibility,
+  VisibilityOff,
+  Delete,
+  Lock,
+  LockOpen,
+  Close,
+} from "@mui/icons-material";
 import Swal from "sweetalert2";
 import { User } from "../../interfaces";
 import { useQuery, useQueryClient } from "react-query";
@@ -129,20 +132,16 @@ export default function ManageUsers() {
       renderCell: (params: GridRenderCellParams) => (
         <>
           <IconButton
-            color="primary"
+            color="warning"
             onClick={(event) => handleLockClick(event, params.row.id)}
           >
-            {params.row.status === "Không khóa" ? (
-              <LockOpenIcon />
-            ) : (
-              <LockIcon />
-            )}
+            {params.row.status === "Không khóa" ? <LockOpen /> : <Lock />}
           </IconButton>
           <IconButton
-            color="secondary"
+            color="error"
             onClick={(event) => handleDeleteClick(event, params.row.id)}
           >
-            <DeleteIcon />
+            <Delete />
           </IconButton>
         </>
       ),
@@ -383,7 +382,7 @@ export default function ManageUsers() {
           >
             <Typography sx={{ position: "absolute", top: 0, right: 0 }}>
               <IconButton onClick={handleOpen}>
-                <CloseIcon />
+                <Close />
               </IconButton>
             </Typography>
             <Typography
