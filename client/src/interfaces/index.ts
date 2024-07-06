@@ -12,6 +12,12 @@ export interface User {
   created_at: string;
 }
 
+export interface Course {
+  id: number;
+  title: string;
+  description: string;
+}
+
 export interface ExamSubject {
   id: number;
   title: string;

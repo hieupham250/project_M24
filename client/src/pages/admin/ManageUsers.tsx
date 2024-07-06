@@ -1,10 +1,4 @@
-import {
-  DataGrid,
-  GridRenderCellParams,
-  GridToolbar,
-  viVN,
-} from "@mui/x-data-grid";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { DataGrid, GridRenderCellParams, viVN } from "@mui/x-data-grid";
 import {
   IconButton,
   Box,
@@ -42,7 +36,6 @@ import bcrypt from "bcryptjs";
 import Cookies from "js-cookie";
 
 export default function ManageUsers() {
-  const theme = createTheme();
   const queryClient = useQueryClient();
   const { data: users } = useQuery({
     queryKey: ["users"],
@@ -557,21 +550,19 @@ export default function ManageUsers() {
         </Modal>
       </Box>
       <div style={{ height: 420, width: "100%" }}>
-        <ThemeProvider theme={theme}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 10 },
-              },
-            }}
-            pageSizeOptions={[10, 15]}
-            checkboxSelection
-            localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
-            disableColumnSelector={true}
-          />
-        </ThemeProvider>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 10 },
+            },
+          }}
+          pageSizeOptions={[10, 15]}
+          checkboxSelection
+          localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
+          disableColumnSelector={true}
+        />
       </div>
     </>
   );

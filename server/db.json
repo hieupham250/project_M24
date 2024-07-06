@@ -259,6 +259,19 @@
       "role": "Admin",
       "created_at": "2024-06-12",
       "id": 20
+    },
+    {
+      "fullName": "Võ Thị Như Ý",
+      "avatar": "",
+      "email": "ggh@gmail.com",
+      "phone": "",
+      "address": "",
+      "password": "$2a$10$/wtmAVz12WKSDUrrJKRzieu7iyTLu3oZ3xOebrNYgH7DYXYq25yoO",
+      "dayOfBirth": "2023-07-25",
+      "status": true,
+      "role": "User",
+      "created_at": "2024-07-06T05:23:49.809Z",
+      "id": 21
     }
   ]
 }

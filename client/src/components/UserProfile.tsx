@@ -44,7 +44,6 @@ export default function UserProfile() {
       });
     }
   }, []);
-  console.log(userLogin);
 
   const handleInputOnChange = (e: any) => {
     const { id, value } = e.target;
