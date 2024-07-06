@@ -95,7 +95,9 @@ export default function HomeAdmin() {
               onClose={handleMenuClose}
               sx={{ position: "absolute", top: "5px", left: "-24px" }}
             >
-              <MenuItem onClick={handleMenuClose}>Tài khoản của tôi</MenuItem>
+              <MenuItem onClick={() => navigate("/profile")}>
+                Tài khoản của tôi
+              </MenuItem>
               <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
             </Menu>
           </Box>

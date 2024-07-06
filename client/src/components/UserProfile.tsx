@@ -8,13 +8,17 @@ import {
 } from "@mui/material";
 import { PhotoCamera } from "@mui/icons-material";
 import Cookies from "js-cookie";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { storage } from "../config/firebase";
 import { useEffect, useState } from "react";
 import { updateUser } from "../services/service_user/serviceUser";
 import { isVietnamesePhoneNumber } from "../util/validateData";
+import { useQueryClient } from "react-query";
 import Swal from "sweetalert2";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 export default function UserProfile() {
+  const queryClient = useQueryClient();
   const [userLogin, setUserLogin] = useState<any>();
   const [errorFullName, setErrorFullName] = useState<boolean>(false);
   const [errorDayOfBirth, setErrorDayOfBirth] = useState<boolean>(false);
@@ -26,6 +30,7 @@ export default function UserProfile() {
     phone: "",
     address: "",
   });
+
   useEffect(() => {
     const userCookie = Cookies.get("user");
     if (userCookie) {
@@ -39,27 +44,43 @@ export default function UserProfile() {
       });
     }
   }, []);
+  console.log(userLogin);
 
   const handleInputOnChange = (e: any) => {
-    setEditUser((prevData: any) => ({ ...prevData, [id]: value }));
     const { id, value } = e.target;
-    if (id === "fullName") {
-      setErrorFullName(true);
-    }
-    if (id === "dayOfBirth") {
-      const currentDate = new Date();
-      const enteredDate = new Date(value);
-      if (enteredDate > currentDate) {
-        setErrorDayOfBirth(true);
-      } else {
-        setErrorDayOfBirth(false);
+    if (id === "avatar-upload") {
+      const file = e.target.files[0];
+      if (file) {
+        const imageRef = ref(storage, `avatars/${file.name}`);
+        uploadBytes(imageRef, file).then((snapshot) => {
+          getDownloadURL(snapshot.ref).then((downloadURL) => {
+            setEditUser((prevData: any) => ({
+              ...prevData,
+              avatar: downloadURL,
+            }));
+          });
+        });
       }
-    }
-    if (id === "phone") {
-      setErrorPhone(true);
-    }
-    if (id === "address") {
-      setErrorAddress(true);
+    } else {
+      setEditUser((prevData: any) => ({ ...prevData, [id]: value }));
+      if (id === "fullName") {
+        setErrorFullName(true);
+      }
+      if (id === "dayOfBirth") {
+        const currentDate = new Date();
+        const enteredDate = new Date(value);
+        if (enteredDate > currentDate) {
+          setErrorDayOfBirth(true);
+        } else {
+          setErrorDayOfBirth(false);
+        }
+      }
+      if (id === "phone") {
+        setErrorPhone(true);
+      }
+      if (id === "address") {
+        setErrorAddress(true);
+      }
     }
   };
 
@@ -83,6 +104,7 @@ export default function UserProfile() {
           };
           await updateUser(updatedUser);
           Cookies.set("user", JSON.stringify(updatedUser));
+          queryClient.invalidateQueries("userHeader");
           Swal.fire({
             title: "Success!",
             text: "Thay đổi thông tin thành công.",
@@ -129,6 +151,7 @@ export default function UserProfile() {
                 style={{ display: "none" }}
                 id="avatar-upload"
                 type="file"
+                onChange={handleInputOnChange}
               />
               <label htmlFor="avatar-upload">
                 <IconButton

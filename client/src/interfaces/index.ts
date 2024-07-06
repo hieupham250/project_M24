@@ -1,7 +1,7 @@
 export interface User {
-  id?: number; // id người dùng
-  fullName: string; // tên đầy đủ
-  avatar: string; // ảnh đại diện
+  id?: number;
+  fullName: string;
+  avatar: string;
   email: string;
   password: string;
   address: string;
@@ -9,5 +9,34 @@ export interface User {
   phone: string;
   status: boolean;
   role: string;
-  created_at: string; // thời gian tạo
+  created_at: string;
+}
+
+export interface ExamSubject {
+  id: number;
+  title: string;
+  description: string;
+  courseId: number;
+}
+
+export interface Exam {
+  id: number;
+  title: string;
+  duration: 90;
+  examSubjectId: number;
+}
+
+export interface Question {
+  id: number;
+  question: string;
+  examId: number;
+  options: [];
+  answer: string;
+}
+
+export interface UserAnswer {
+  id: number;
+  userId: number;
+  examId: number;
+  score: number;
 }

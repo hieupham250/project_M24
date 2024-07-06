@@ -10,21 +10,29 @@ import {
 } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { MoreVert } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { getUserById } from "../services/service_user/serviceUser";
+import Swal from "sweetalert2";
+
 export default function Header() {
-  const [userLogin, setUserLogin] = useState<any>();
-  const [isUserLogin, setIsUserLogin] = useState<boolean>(false);
+  const [userLoginCookie, setUserLogin] = useState<any>();
   const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userCookie = Cookies.get("user");
     if (userCookie) {
       setUserLogin(JSON.parse(userCookie));
-      setIsUserLogin(!isUserLogin);
     }
   }, []);
+
+  const { data: userLogin } = useQuery({
+    queryKey: ["userHeader", userLoginCookie],
+    queryFn: () => getUserById(userLoginCookie?.id),
+  });
 
   const handleMenuOpen = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -37,8 +45,16 @@ export default function Header() {
   const handleLogout = () => {
     Cookies.remove("user");
     setUserLogin(null);
-    setIsUserLogin(false);
     handleMenuClose();
+    Swal.fire({
+      icon: "success",
+      title: "Đăng xuất thành công!",
+      showConfirmButton: false,
+      timer: 500,
+    });
+    setTimeout(() => {
+      navigate("/");
+    }, 510);
   };
   return (
     <>
@@ -62,7 +78,7 @@ export default function Header() {
             </Link>
           </Grid>
           <Grid item>
-            {isUserLogin ? (
+            {userLogin?.data[0] ? (
               <Box
                 sx={{
                   display: "flex",
@@ -71,11 +87,11 @@ export default function Header() {
                 }}
               >
                 <Avatar
-                  src={userLogin?.avatar}
+                  src={userLogin?.data[0]?.avatar}
                   sx={{ width: 25, height: 25 }}
                 />
                 <Typography variant="body1" sx={{ marginLeft: 1 }}>
-                  {userLogin ? userLogin.fullName : ""}
+                  {userLogin ? userLogin?.data[0]?.fullName : ""}
                 </Typography>
                 <IconButton color="inherit" onClick={handleMenuOpen}>
                   <MoreVert />
@@ -87,14 +103,14 @@ export default function Header() {
                   onClose={handleMenuClose}
                   sx={{ position: "absolute", top: "5px", left: "-24px" }}
                 >
-                  <MenuItem onClick={handleMenuClose}>
+                  <MenuItem onClick={() => navigate("/profile")}>
                     Tài khoản của tôi
                   </MenuItem>
                   <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
                 </Menu>
               </Box>
             ) : (
-              <Link to="login">
+              <Link to="/login">
                 <Button
                   variant="contained"
                   sx={{ display: "flex", alignItems: "center", gap: "5px" }}

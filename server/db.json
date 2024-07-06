@@ -2,10 +2,10 @@
   "users": [
     {
       "fullName": "Phạm Trung Hiếu",
-      "avatar": "https://tse3.mm.bing.net/th?id=OIP.QZIRZKUSWt1HBifjDRKGzAHaFj&pid=Api&P=0&h=180",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-react-8dc1e.appspot.com/o/avatars%2Fimages.jfif?alt=media&token=b6888ff2-fb5b-46e9-b6cf-eceda2400119",
       "email": "ptrunghieu2507@gmail.com",
       "phone": "0846462676",
-      "address": "HCM",
+      "address": "Hà nội",
       "password": "$2a$10$p0.8GE9EDNoOGunUG3QmkeCMWDsqQ0ofpubgEmL9XZMO2AAkL2UUG",
       "dayOfBirth": "2004-07-25",
       "status": true,
@@ -22,7 +22,7 @@
       "password": "$2a$12$PoNO1VGBIbPmDPESgJ8ERel4WvP0RZNT5H5sKpYJ7/B6TvfrsefdS",
       "dayOfBirth": "1988-02-16",
       "status": true,
-      "role": "User",
+      "role": "Admin",
       "created_at": "2024-06-05",
       "id": 2
     },

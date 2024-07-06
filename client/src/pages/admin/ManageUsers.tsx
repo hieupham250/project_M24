@@ -213,7 +213,7 @@ export default function ManageUsers() {
     setOpen(!open);
     setAddUser({
       fullName: "",
-      avatar: "/src/assets/images/avatar/avatar.jpg",
+      avatar: "",
       email: "",
       phone: "",
       address: "",
@@ -287,6 +287,7 @@ export default function ManageUsers() {
     }
     if (addUser.password != confirmPassword) {
       setErrorPassword(true);
+      return;
     } else {
       setErrorPassword(false);
     }
@@ -569,9 +570,6 @@ export default function ManageUsers() {
             checkboxSelection
             localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
             disableColumnSelector={true}
-            slots={{
-              toolbar: GridToolbar,
-            }}
           />
         </ThemeProvider>
       </div>
