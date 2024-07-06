@@ -14,7 +14,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { MoreVert, People } from "@mui/icons-material";
+import { MoreVert, People, LibraryBooksOutlined } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { NavLink, Route, Routes, useNavigate } from "react-router-dom";
@@ -115,6 +115,14 @@ export default function HomeAdmin() {
                   <People />
                 </ListItemIcon>
                 <ListItemText primary="Tài khoản" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton component={NavLink} to="/admin/course">
+                <ListItemIcon>
+                  <LibraryBooksOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Khóa luyện thi" />
               </ListItemButton>
             </ListItem>
           </List>
