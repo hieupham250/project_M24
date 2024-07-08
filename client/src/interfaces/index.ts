@@ -13,23 +13,27 @@ export interface User {
 }
 
 export interface Course {
-  id: number;
+  id?: number;
   title: string;
   description: string;
+  created_at: string;
 }
 
 export interface ExamSubject {
-  id: number;
+  id?: number;
   title: string;
   description: string;
-  courseId: number;
+  courseId?: number;
+  created_at: string;
 }
 
 export interface Exam {
   id: number;
   title: string;
+  description: string;
   duration: 90;
   examSubjectId: number;
+  created_at: string;
 }
 
 export interface Question {

@@ -22,6 +22,9 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import ManageUsers from "./ManageUsers";
+import ManageCourses from "./ManageCourses";
+import ManageExamSubjects from "./ManageExamSubjects";
+import ManageExams from "./ManageExams";
 
 export default function HomeAdmin() {
   const [userAdminLogin, setUserAdminLogin] = useState<any>();
@@ -118,11 +121,27 @@ export default function HomeAdmin() {
               </ListItemButton>
             </ListItem>
             <ListItem>
-              <ListItemButton component={NavLink} to="/admin/course">
+              <ListItemButton component={NavLink} to="/admin/courses">
                 <ListItemIcon>
                   <LibraryBooksOutlined />
                 </ListItemIcon>
                 <ListItemText primary="Khóa luyện thi" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton component={NavLink} to="/admin/examSubjects">
+                <ListItemIcon>
+                  <LibraryBooksOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Môn thi" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem>
+              <ListItemButton component={NavLink} to="/admin/exams">
+                <ListItemIcon>
+                  <LibraryBooksOutlined />
+                </ListItemIcon>
+                <ListItemText primary="Đề thi" />
               </ListItemButton>
             </ListItem>
           </List>
@@ -137,6 +156,15 @@ export default function HomeAdmin() {
       <Box sx={{ m: 3 }}>
         <Routes>
           <Route path="users" element={<ManageUsers></ManageUsers>}></Route>
+          <Route
+            path="courses"
+            element={<ManageCourses></ManageCourses>}
+          ></Route>
+          <Route
+            path="examSubjects"
+            element={<ManageExamSubjects></ManageExamSubjects>}
+          ></Route>
+          <Route path="exams" element={<ManageExams></ManageExams>}></Route>
         </Routes>
       </Box>
     </>
