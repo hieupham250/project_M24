@@ -5,7 +5,6 @@ import {
   Modal,
   Typography,
   TextField,
-  Autocomplete,
 } from "@mui/material";
 import { DataGrid, GridRenderCellParams, viVN } from "@mui/x-data-grid";
 import { Edit, Delete, Close } from "@mui/icons-material";
@@ -17,34 +16,36 @@ import {
   getExamById,
   updateExam,
 } from "../../services/service_admin/serviceExam";
-import { getAllExamSubjects } from "../../services/service_admin/serviceExamSubject";
+import { getAllExamSubjectsSelect } from "../../services/service_admin/serviceExamSubject";
 import { useMemo, useState } from "react";
 import { format } from "date-fns";
 import { Exam } from "../../interfaces";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
 export default function ManageExams() {
   const queryClient = useQueryClient();
+  let { id } = useParams();
+
   const { data: exams } = useQuery({
-    queryKey: ["exams"],
-    queryFn: () => getAllExams(),
+    queryKey: ["exams", id],
+    queryFn: () => getAllExams(id),
   });
 
   const { data: examSubjects } = useQuery({
     queryKey: ["examSubjects"],
-    queryFn: () => getAllExamSubjects(),
+    queryFn: () => getAllExamSubjectsSelect(),
   });
 
   const [open, setOpen] = useState<boolean>(false);
   const [errorTitle, setErrorTitle] = useState<boolean>(false);
   const [errorDescription, setErrorDescription] = useState<boolean>(false);
   const [errorDuration, setErrorDuration] = useState<boolean>(false);
-  const [errorExamSubjectId, setErrorExamSubjectId] = useState<boolean>(false);
   const [typeButton, setTypeButton] = useState<string>("add");
   const [formAddOrUpdateExam, setFormAddOrUpdateExam] = useState({
     title: "",
     description: "",
     duration: "",
-    examSubjectId: "",
+    examSubjectId: Number(id),
     created_at: "",
   });
   const [editExamId, setEditExamId] = useState<number | null>(null);
@@ -104,13 +105,12 @@ export default function ManageExams() {
       title: "",
       description: "",
       duration: "",
-      examSubjectId: "",
+      examSubjectId: Number(id),
       created_at: "",
     });
     setErrorTitle(false);
     setErrorDescription(false);
     setErrorDuration(false);
-    setErrorExamSubjectId(false);
   };
 
   const handleInputOnchange = (
@@ -147,7 +147,7 @@ export default function ManageExams() {
       });
       setOpen(!open);
     } catch (err) {
-      Swal.fire("Oops!", "Lỗi không thể tải thông tin khóa học!", "error");
+      Swal.fire("Oops!", "Lỗi không thể tải thông tin đề thi!", "error");
     }
   };
 
@@ -159,13 +159,11 @@ export default function ManageExams() {
     if (
       formAddOrUpdateExam.title == "" &&
       formAddOrUpdateExam.description == "" &&
-      formAddOrUpdateExam.duration == "" &&
-      formAddOrUpdateExam.examSubjectId == ""
+      formAddOrUpdateExam.duration == ""
     ) {
       setErrorTitle(true);
       setErrorDescription(true);
       setErrorDuration(true);
-      setErrorExamSubjectId(true);
       return;
     }
     if (isNaN(Number(formAddOrUpdateExam.duration))) {
@@ -213,12 +211,11 @@ export default function ManageExams() {
       title: "",
       description: "",
       duration: "",
-      examSubjectId: "",
+      examSubjectId: Number(id),
       created_at: "",
     });
     setErrorTitle(false);
     setErrorDescription(false);
-    setErrorExamSubjectId(false);
     setOpen(!open);
   };
 
@@ -271,6 +268,7 @@ export default function ManageExams() {
           checkboxSelection
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
           disableColumnSelector={true}
+          disableRowSelectionOnClick
         />
       </div>
       <Modal
@@ -380,45 +378,17 @@ export default function ManageExams() {
                   : ""
               }
             />
-            <Autocomplete
+            <TextField
               id="examSubjectId"
-              options={examSubjects?.data?.map(
-                (examSubject: any) =>
-                  ({
-                    label: examSubject.title,
-                    id: examSubject.id,
-                  } || [])
-              )}
+              label="Môn thi"
+              variant="outlined"
               sx={{ width: "100%" }}
               value={
                 examSubjects?.data?.find(
-                  (examSubject: any) =>
-                    formAddOrUpdateExam.examSubjectId === examSubject.id
+                  (examSubject: any) => examSubject.id == id
                 )?.title
               }
-              onChange={(_, newValue: any) => {
-                if (newValue == null) {
-                  setErrorExamSubjectId(true);
-                } else {
-                  setErrorExamSubjectId(false);
-                }
-                setFormAddOrUpdateExam({
-                  ...formAddOrUpdateExam,
-                  examSubjectId: newValue.id,
-                });
-              }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Môn thi"
-                  error={errorExamSubjectId}
-                  helperText={
-                    errorExamSubjectId ? "Bạn phải chọn một môn thi" : ""
-                  }
-                />
-              )}
             />
-
             <Button type="submit" variant="contained" sx={{ width: "100%" }}>
               {typeButton === "add" ? "Thêm mới" : "Cập nhật"}
             </Button>

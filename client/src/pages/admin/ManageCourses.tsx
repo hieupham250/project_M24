@@ -20,6 +20,7 @@ import { useMemo, useState } from "react";
 import { Course } from "../../interfaces";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function ManageCourses() {
   const queryClient = useQueryClient();
@@ -27,6 +28,8 @@ export default function ManageCourses() {
     queryKey: ["courses"],
     queryFn: () => getAllCourses(),
   });
+
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState<boolean>(false);
   const [errorTitle, setErrorTitle] = useState<boolean>(false);
@@ -205,6 +208,13 @@ export default function ManageCourses() {
       }
     });
   };
+
+  //hàm lấy id của khóa khoc tương ứng
+  const handleRowClick = (params: any) => {
+    // navigate(`/examSubjects/${params.id}`);
+    navigate(`/admin/courses/examSubjects/${params.id}`);
+  };
+
   return (
     <>
       <Box sx={{ marginBottom: "20px" }}>
@@ -232,6 +242,8 @@ export default function ManageCourses() {
           checkboxSelection
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
           disableColumnSelector={true}
+          disableRowSelectionOnClick
+          onRowClick={handleRowClick}
         />
       </div>
       <Modal

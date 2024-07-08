@@ -6,7 +6,6 @@ import {
   Modal,
   Typography,
   TextField,
-  Autocomplete,
 } from "@mui/material";
 import { Edit, Delete, Close } from "@mui/icons-material";
 import { useQuery, useQueryClient } from "react-query";
@@ -22,28 +21,29 @@ import { ExamSubject } from "../../interfaces";
 import Swal from "sweetalert2";
 import { getAllCourses } from "../../services/service_admin/serviceCourse";
 import { format } from "date-fns";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ManageExamSubjects() {
+  let { id } = useParams();
   const queryClient = useQueryClient();
   const { data: examSubjects } = useQuery({
-    queryKey: ["examSubjects"],
-    queryFn: () => getAllExamSubjects(),
+    queryKey: ["examSubjects", id],
+    queryFn: () => getAllExamSubjects(id),
   });
 
   const { data: courses } = useQuery({
     queryKey: ["courses"],
     queryFn: () => getAllCourses(),
   });
-
+  const navigate = useNavigate();
   const [open, setOpen] = useState<boolean>(false);
   const [errorTitle, setErrorTitle] = useState<boolean>(false);
   const [errorDescription, setErrorDescription] = useState<boolean>(false);
-  const [errorCourseId, setErrorCourseId] = useState<boolean>(false);
   const [typeButton, setTypeButton] = useState<string>("add");
   const [formAddOrUpdateExamSubject, setFormAddOrUpdateExamSubject] = useState({
     title: "",
     description: "",
-    courseId: "",
+    courseId: Number(id),
     created_at: "",
   });
   const [editExamSubjectId, setEditExamSubjectId] = useState<number | null>(
@@ -105,12 +105,11 @@ export default function ManageExamSubjects() {
     setFormAddOrUpdateExamSubject({
       title: "",
       description: "",
-      courseId: "",
+      courseId: Number(id),
       created_at: "",
     });
     setErrorTitle(false);
     setErrorDescription(false);
-    setErrorCourseId(false);
   };
 
   const handleInputOnchange = (
@@ -143,7 +142,7 @@ export default function ManageExamSubjects() {
       });
       setOpen(!open);
     } catch (err) {
-      Swal.fire("Oops!", "Lỗi không thể tải thông tin khóa học!", "error");
+      Swal.fire("Oops!", "Lỗi không thể tải thông tin môn học!", "error");
     }
   };
 
@@ -154,12 +153,10 @@ export default function ManageExamSubjects() {
     const currentDate = new Date();
     if (
       formAddOrUpdateExamSubject.title == "" &&
-      formAddOrUpdateExamSubject.description == "" &&
-      formAddOrUpdateExamSubject.courseId == ""
+      formAddOrUpdateExamSubject.description == ""
     ) {
       setErrorTitle(true);
       setErrorDescription(true);
-      setErrorCourseId(true);
       return;
     }
     const courseData = {
@@ -201,12 +198,11 @@ export default function ManageExamSubjects() {
     setFormAddOrUpdateExamSubject({
       title: "",
       description: "",
-      courseId: "",
+      courseId: Number(id),
       created_at: "",
     });
     setErrorTitle(false);
     setErrorDescription(false);
-    setErrorCourseId(false);
     setOpen(!open);
   };
 
@@ -231,6 +227,13 @@ export default function ManageExamSubjects() {
         });
       }
     });
+  };
+
+  const handleRowClick = (params: any) => {
+    navigate(`/admin/courses/examSubjects/exams/${params.id}`, {
+      replace: true,
+    });
+    // navigate(`/admin/courses/examSubjects/exams/${params.id}`);
   };
 
   return (
@@ -260,6 +263,8 @@ export default function ManageExamSubjects() {
           checkboxSelection
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
           disableColumnSelector={true}
+          disableRowSelectionOnClick
+          onRowClick={handleRowClick}
         />
       </div>
       <Modal
@@ -352,41 +357,14 @@ export default function ManageExamSubjects() {
                   : ""
               }
             />
-            <Autocomplete
-              id="courseId"
-              options={courses?.data?.map(
-                (course: any) =>
-                  ({
-                    label: course.title,
-                    id: course.id,
-                  } || [])
-              )}
+            <TextField
+              id="examSubjectId"
+              label="Môn thi"
+              variant="outlined"
               sx={{ width: "100%" }}
               value={
-                courses?.data?.find(
-                  (course: any) =>
-                    formAddOrUpdateExamSubject.courseId === course.id
-                )?.title
+                courses?.data?.find((course: any) => course.id == id)?.title
               }
-              onChange={(_, newValue: any) => {
-                if (newValue == null) {
-                  setErrorCourseId(true);
-                } else {
-                  setErrorCourseId(false);
-                }
-                setFormAddOrUpdateExamSubject({
-                  ...formAddOrUpdateExamSubject,
-                  courseId: newValue.id,
-                });
-              }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Khóa học"
-                  error={errorCourseId}
-                  helperText={errorCourseId ? "Bạn phải chọn một khóa học" : ""}
-                />
-              )}
             />
 
             <Button type="submit" variant="contained" sx={{ width: "100%" }}>

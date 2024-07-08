@@ -128,22 +128,6 @@ export default function HomeAdmin() {
                 <ListItemText primary="Khóa luyện thi" />
               </ListItemButton>
             </ListItem>
-            <ListItem>
-              <ListItemButton component={NavLink} to="/admin/examSubjects">
-                <ListItemIcon>
-                  <LibraryBooksOutlined />
-                </ListItemIcon>
-                <ListItemText primary="Môn thi" />
-              </ListItemButton>
-            </ListItem>
-            <ListItem>
-              <ListItemButton component={NavLink} to="/admin/exams">
-                <ListItemIcon>
-                  <LibraryBooksOutlined />
-                </ListItemIcon>
-                <ListItemText primary="Đề thi" />
-              </ListItemButton>
-            </ListItem>
           </List>
           <IconButton
             sx={{ position: "absolute", top: "13px", right: "10px" }}
@@ -161,10 +145,13 @@ export default function HomeAdmin() {
             element={<ManageCourses></ManageCourses>}
           ></Route>
           <Route
-            path="examSubjects"
+            path="courses/examSubjects/:id"
             element={<ManageExamSubjects></ManageExamSubjects>}
           ></Route>
-          <Route path="exams" element={<ManageExams></ManageExams>}></Route>
+          <Route
+            path="courses/examSubjects/exams/:id"
+            element={<ManageExams></ManageExams>}
+          ></Route>
         </Routes>
       </Box>
     </>
