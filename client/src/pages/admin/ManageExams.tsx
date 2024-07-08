@@ -150,6 +150,7 @@ export default function ManageExams() {
       Swal.fire("Oops!", "Lỗi không thể tải thông tin đề thi!", "error");
     }
   };
+  console.log(formAddOrUpdateExam);
 
   const handleCreateOrUpdateExam = async (
     e: React.FormEvent<HTMLFormElement>
@@ -157,8 +158,8 @@ export default function ManageExams() {
     e.preventDefault();
     const currentDate = new Date();
     if (
-      formAddOrUpdateExam.title == "" &&
-      formAddOrUpdateExam.description == "" &&
+      formAddOrUpdateExam.title == "" ||
+      formAddOrUpdateExam.description == "" ||
       formAddOrUpdateExam.duration == ""
     ) {
       setErrorTitle(true);
@@ -366,13 +367,11 @@ export default function ManageExams() {
               value={formAddOrUpdateExam.duration || ""}
               onChange={handleInputOnchange}
               error={
-                (errorDuration &&
-                  formAddOrUpdateExam?.duration?.trim() == "") ||
+                (errorDuration && formAddOrUpdateExam?.duration == "") ||
                 (errorDuration && isNaN(Number(formAddOrUpdateExam.duration)))
               }
               helperText={
-                (errorDuration &&
-                  formAddOrUpdateExam?.duration?.trim() == "") ||
+                (errorDuration && formAddOrUpdateExam?.duration == "") ||
                 (errorDuration && isNaN(Number(formAddOrUpdateExam.duration)))
                   ? "Thời gian không hợp lệ!"
                   : ""

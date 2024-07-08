@@ -152,7 +152,7 @@ export default function ManageExamSubjects() {
     e.preventDefault();
     const currentDate = new Date();
     if (
-      formAddOrUpdateExamSubject.title == "" &&
+      formAddOrUpdateExamSubject.title == "" ||
       formAddOrUpdateExamSubject.description == ""
     ) {
       setErrorTitle(true);

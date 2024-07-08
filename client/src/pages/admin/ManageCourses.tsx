@@ -133,7 +133,7 @@ export default function ManageCourses() {
     e.preventDefault();
     const currentDate = new Date();
     if (
-      formAddOrUpdateCourse.title == "" &&
+      formAddOrUpdateCourse.title == "" ||
       formAddOrUpdateCourse.description == ""
     ) {
       setErrorTitle(true);
