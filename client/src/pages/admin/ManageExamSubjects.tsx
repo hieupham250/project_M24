@@ -61,7 +61,7 @@ export default function ManageExamSubjects() {
         title: examSubject.title,
         description: examSubject.description,
         courseId: courses?.data?.find(
-          (course: any) => examSubject.courseId === course.id
+          (course: any) => course.id === examSubject.courseId
         )?.title,
         created_at: examSubject.created_at
           ? format(new Date(examSubject.created_at), "dd/MM/yyyy HH:mm:ss")

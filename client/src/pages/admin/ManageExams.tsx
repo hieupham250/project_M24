@@ -61,7 +61,7 @@ export default function ManageExams() {
       description: exam.description,
       duration: exam.duration,
       examSubjectId: examSubjects?.data?.find(
-        (examSubject: any) => exam.examSubjectId === examSubject.id
+        (examSubject: any) => examSubject.id === exam.examSubjectId
       )?.title,
       created_at: exam.created_at
         ? format(new Date(exam.created_at), "dd/MM/yyyy HH:mm:ss")

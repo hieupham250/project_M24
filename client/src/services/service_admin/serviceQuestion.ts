@@ -1,9 +1,11 @@
 import { AxiosResponse } from "axios";
 import baseUrl from "../../api";
 
-export const getAllQuestions = async (): Promise<AxiosResponse<any>> => {
+export const getAllQuestions = async (
+  examId?: any
+): Promise<AxiosResponse<any>> => {
   try {
-    const response = await baseUrl.get("/questions");
+    const response = await baseUrl.get(`/questions?examId=${examId}`);
     return response;
   } catch (error) {
     throw new Error(`Error fetching questions: ${error}`);
