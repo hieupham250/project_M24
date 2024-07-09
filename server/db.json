@@ -299,6 +299,12 @@
       "description": "khóa xịn nha",
       "created_at": "2024-07-08T15:40:24.057Z",
       "id": 2
+    },
+    {
+      "title": "Khóa lập trình",
+      "description": "khóa này xịn",
+      "created_at": "2024-07-09T04:25:23.658Z",
+      "id": 3
     }
   ],
   "examSubjects": [
@@ -324,10 +330,10 @@
       "created_at": "2024-07-07T03:22:32.083Z"
     },
     {
-      "title": "Môn văn",
-      "description": "văn chúa",
+      "title": "Lập trình C",
+      "description": "khóa này xịn",
       "courseId": 3,
-      "created_at": "2024-07-08T16:07:40.629Z",
+      "created_at": "2024-07-09T04:26:39.496Z",
       "id": 4
     }
   ],
@@ -355,22 +361,19 @@
       "duration": 45,
       "examSubjectId": 3,
       "created_at": "2024-07-07T03:22:32.083Z"
-    },
-    {
-      "title": "dfdsf",
-      "description": "dfdsf",
-      "duration": 90,
-      "examSubjectId": 4,
-      "created_at": "2024-07-08T16:07:59.189Z",
-      "id": 4
     }
   ],
   "questions": [
     {
       "id": 1,
       "question": "Phương trình có nghiệm X=? X2-2X+1=0",
-      "options": ["0", "1", "2,3", "4"],
-      "answer": "1",
+      "options": [
+        "0",
+        "1",
+        "2,3",
+        "4"
+      ],
+      "correctAnswer": "1",
       "examId": 1
     },
     {
@@ -382,8 +385,56 @@
         "Tam giác cân",
         "Tam giác thường"
       ],
-      "answer": "Tam giác vuông",
-      "examId": 2
+      "correctAnswer": "Tam giác vuông",
+      "examId": 1
+    },
+    {
+      "question": "1 + 2 = ?",
+      "examId": 1,
+      "options": [
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      "correctAnswer": "3",
+      "id": 3
+    },
+    {
+      "question": "1 + 3 = ?",
+      "examId": 1,
+      "options": [
+        "4",
+        "3",
+        "2",
+        "1"
+      ],
+      "correctAnswer": "4",
+      "id": 4
+    },
+    {
+      "question": "1 + 4 = ?",
+      "examId": 1,
+      "options": [
+        "5",
+        "4",
+        "3",
+        "2"
+      ],
+      "correctAnswer": "5",
+      "id": 5
+    },
+    {
+      "question": "1 + 8 = ?",
+      "examId": 1,
+      "options": [
+        "9",
+        "8",
+        "7",
+        "6"
+      ],
+      "correctAnswer": "9",
+      "id": 6
     }
   ],
   "userAnswers": [

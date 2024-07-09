@@ -12,6 +12,15 @@ export const getAllExams = async (
   }
 };
 
+export const getAllExamsSelect = async (): Promise<AxiosResponse<any>> => {
+  try {
+    const response = await baseUrl.get(`/exams`);
+    return response;
+  } catch (error) {
+    throw new Error(`Error fetching exams: ${error}`);
+  }
+};
+
 export const createExam = async (exam: any): Promise<AxiosResponse<any>> => {
   try {
     const response = await baseUrl.post(`/exams`, exam);

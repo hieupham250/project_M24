@@ -13,10 +13,10 @@ export const getAllQuestions = async (
 };
 
 export const createQuestion = async (
-  exam: any
+  question: any
 ): Promise<AxiosResponse<any>> => {
   try {
-    const response = await baseUrl.post(`/questions`, exam);
+    const response = await baseUrl.post(`/questions`, question);
     return response;
   } catch (error) {
     throw new Error(`Error adding questions: ${error}`);
@@ -33,10 +33,10 @@ export const getQuestionById = async (id: any): Promise<AxiosResponse<any>> => {
 };
 export const updateQuestion = async (
   id: any,
-  exam: any
+  question: any
 ): Promise<AxiosResponse<any>> => {
   try {
-    const response = await baseUrl.patch(`/questions/${id}`, exam);
+    const response = await baseUrl.patch(`/questions/${id}`, question);
     return response;
   } catch (error) {
     throw new Error(`Error fetching questions: ${error}`);

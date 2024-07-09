@@ -37,11 +37,11 @@ export interface Exam {
 }
 
 export interface Question {
-  id: number;
+  id?: number;
   question: string;
   examId: number;
-  options: [];
-  answer: string;
+  options: string[];
+  correctAnswer: string;
 }
 
 export interface UserAnswer {

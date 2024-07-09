@@ -21,7 +21,7 @@ import { useMemo, useState } from "react";
 import { format } from "date-fns";
 import { Exam } from "../../interfaces";
 import Swal from "sweetalert2";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 export default function ManageExams() {
   const queryClient = useQueryClient();
   let { id } = useParams();
@@ -36,6 +36,7 @@ export default function ManageExams() {
     queryFn: () => getAllExamSubjectsSelect(),
   });
 
+  const navigate = useNavigate();
   const [open, setOpen] = useState<boolean>(false);
   const [errorTitle, setErrorTitle] = useState<boolean>(false);
   const [errorDescription, setErrorDescription] = useState<boolean>(false);
@@ -150,7 +151,6 @@ export default function ManageExams() {
       Swal.fire("Oops!", "Lỗi không thể tải thông tin đề thi!", "error");
     }
   };
-  console.log(formAddOrUpdateExam);
 
   const handleCreateOrUpdateExam = async (
     e: React.FormEvent<HTMLFormElement>
@@ -242,6 +242,14 @@ export default function ManageExams() {
       }
     });
   };
+
+  const handleRowClick = (params: any) => {
+    navigate(`/admin/courses/examSubjects/exams/questions/${params.id}`, {
+      replace: true,
+    });
+    // navigate(`/admin/courses/examSubjects/exams/${params.id}`);
+  };
+
   return (
     <>
       <Box sx={{ marginBottom: "20px" }}>
@@ -270,6 +278,7 @@ export default function ManageExams() {
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
           disableColumnSelector={true}
           disableRowSelectionOnClick
+          onRowClick={handleRowClick}
         />
       </div>
       <Modal

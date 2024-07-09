@@ -25,6 +25,7 @@ import ManageUsers from "./ManageUsers";
 import ManageCourses from "./ManageCourses";
 import ManageExamSubjects from "./ManageExamSubjects";
 import ManageExams from "./ManageExams";
+import ManangeQuestions from "./ManangeQuestions";
 
 export default function HomeAdmin() {
   const [userAdminLogin, setUserAdminLogin] = useState<any>();
@@ -151,6 +152,10 @@ export default function HomeAdmin() {
           <Route
             path="courses/examSubjects/exams/:id"
             element={<ManageExams></ManageExams>}
+          ></Route>
+          <Route
+            path="courses/examSubjects/exams/questions/:id"
+            element={<ManangeQuestions></ManangeQuestions>}
           ></Route>
         </Routes>
       </Box>
