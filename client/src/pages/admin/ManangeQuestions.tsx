@@ -18,7 +18,7 @@ import {
   updateQuestion,
 } from "../../services/service_admin/serviceQuestion";
 import { Question } from "../../interfaces";
-import { getAllExamsSelect } from "../../services/service_admin/serviceExam";
+import { getAllExams } from "../../services/service_admin/serviceExam";
 import { useMemo, useState } from "react";
 import Swal from "sweetalert2";
 
@@ -33,7 +33,7 @@ export default function ManangeQuestions() {
 
   const { data: exams } = useQuery({
     queryKey: ["exams"],
-    queryFn: () => getAllExamsSelect(),
+    queryFn: () => getAllExams(),
   });
 
   const [open, setOpen] = useState<boolean>(false);
@@ -62,7 +62,7 @@ export default function ManangeQuestions() {
       serialNumber: index + 1,
       id: question.id,
       question: question.question,
-      examId: exams?.data?.find((exam: any) => exam.id === question.examId)
+      examTitle: exams?.data?.find((exam: any) => exam.id === question.examId)
         ?.title,
     }));
   }, [questions, exams]);
@@ -70,6 +70,7 @@ export default function ManangeQuestions() {
   const columns = [
     { field: "serialNumber", headerName: "STT", width: 70 },
     { field: "question", headerName: "Câu hỏi", width: 500 },
+    { field: "examTitle", headerName: "Đề thi", width: 500 },
     {
       field: "actions",
       headerName: "Chức năng",
@@ -172,7 +173,10 @@ export default function ManangeQuestions() {
     if (
       formAddOrUpdateQuestion.question == "" ||
       formAddOrUpdateQuestion.options.some((opt) => opt == "") ||
-      formAddOrUpdateQuestion.correctAnswer == ""
+      formAddOrUpdateQuestion.correctAnswer == "" ||
+      !formAddOrUpdateQuestion.options.includes(
+        formAddOrUpdateQuestion.correctAnswer
+      )
     ) {
       setErrorQuestion(true);
       setErrorOptionA(true);
@@ -442,13 +446,22 @@ export default function ManangeQuestions() {
               sx={{ width: "100%" }}
               size="small"
               error={
-                errorCorrectAnswer &&
-                formAddOrUpdateQuestion?.correctAnswer?.trim() == ""
+                (errorCorrectAnswer &&
+                  formAddOrUpdateQuestion?.correctAnswer?.trim() == "") ||
+                (errorCorrectAnswer &&
+                  !formAddOrUpdateQuestion.options.includes(
+                    formAddOrUpdateQuestion.correctAnswer
+                  ))
               }
               helperText={
-                errorQuestion &&
+                errorCorrectAnswer &&
                 formAddOrUpdateQuestion?.correctAnswer?.trim() == ""
                   ? "Đáp án đúng không hợp lệ!"
+                  : errorCorrectAnswer &&
+                    !formAddOrUpdateQuestion.options.includes(
+                      formAddOrUpdateQuestion.correctAnswer
+                    )
+                  ? "Đáp án đúng phải là một trong các đáp án đã cung cấp!"
                   : ""
               }
             />

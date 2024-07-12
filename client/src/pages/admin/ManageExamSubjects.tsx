@@ -60,7 +60,7 @@ export default function ManageExamSubjects() {
         id: examSubject.id,
         title: examSubject.title,
         description: examSubject.description,
-        courseId: courses?.data?.find(
+        courseTitle: courses?.data?.find(
           (course: any) => course.id === examSubject.courseId
         )?.title,
         created_at: examSubject.created_at
@@ -74,7 +74,7 @@ export default function ManageExamSubjects() {
     { field: "serialNumber", headerName: "STT", width: 90 },
     { field: "title", headerName: "Tiêu đề", width: 200 },
     { field: "description", headerName: "Mô tả", width: 230 },
-    { field: "courseId", headerName: "Khóa học", width: 250 },
+    { field: "courseTitle", headerName: "Khóa học", width: 250 },
     { field: "created_at", headerName: "Ngày tạo", width: 200 },
     {
       field: "actions",

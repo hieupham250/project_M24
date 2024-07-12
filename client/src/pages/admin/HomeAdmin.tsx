@@ -33,9 +33,20 @@ export default function HomeAdmin() {
   useEffect(() => {
     const userCookie = Cookies.get("user");
     if (userCookie) {
-      setUserAdminLogin(JSON.parse(userCookie));
+      let user = JSON.parse(userCookie);
+      if (user.role == "User") {
+        navigate(`/404`, {
+          replace: true,
+        });
+      }
+      setUserAdminLogin(user);
+    } else {
+      navigate(`/404`, {
+        replace: true,
+      });
     }
   }, []);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
   const handleMenuOpen = (event: any) => {

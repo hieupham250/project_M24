@@ -45,7 +45,7 @@ export interface Question {
 }
 
 export interface UserAnswer {
-  id: number;
+  id?: number;
   userId: number;
   examId: number;
   score: number;

@@ -293,7 +293,6 @@ export default function ManageUsers() {
       await createUser(newUserData);
       queryClient.invalidateQueries("users");
       Swal.fire({
-        position: "top-end",
         icon: "success",
         title: "Bạn đã thêm tài khoản thành công!",
         showConfirmButton: false,

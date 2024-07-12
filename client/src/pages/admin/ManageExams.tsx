@@ -61,7 +61,7 @@ export default function ManageExams() {
       title: exam.title,
       description: exam.description,
       duration: exam.duration,
-      examSubjectId: examSubjects?.data?.find(
+      examSubjectTitle: examSubjects?.data?.find(
         (examSubject: any) => examSubject.id === exam.examSubjectId
       )?.title,
       created_at: exam.created_at
@@ -74,7 +74,7 @@ export default function ManageExams() {
     { field: "title", headerName: "Tiêu đề", width: 340 },
     { field: "description", headerName: "Mô tả", width: 340 },
     { field: "duration", headerName: "Thời gian (phút)", width: 120 },
-    { field: "examSubjectId", headerName: "Môn thi", width: 150 },
+    { field: "examSubjectTitle", headerName: "Môn thi", width: 150 },
     { field: "created_at", headerName: "Ngày tạo", width: 160 },
     {
       field: "actions",
@@ -311,7 +311,7 @@ export default function ManageExams() {
             component="h2"
             align="center"
           >
-            {typeButton === "add" ? "Thêm mới môn thi" : "Cập nhật môn thi"}
+            {typeButton === "add" ? "Thêm mới đề thi" : "Cập nhật đề thi"}
           </Typography>
           <Box
             component="form"

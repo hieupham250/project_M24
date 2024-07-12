@@ -16,7 +16,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 import Swal from "sweetalert2";
 import bcrypt from "bcryptjs";
 import Cookies from "js-cookie";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "../interfaces";
 import { useQuery } from "react-query";
@@ -25,6 +25,23 @@ import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 
 export default function Login() {
+  useEffect(() => {
+    // kiểm tra xem nếu nhập url là /login trên cookie có giá trị thì chuyển sang trang home hoặc admin thì sang admin
+    const userCookie = Cookies.get("user");
+    if (userCookie) {
+      let user = JSON.parse(userCookie);
+      if (user.role == "User") {
+        navigate(`/`, {
+          replace: true,
+        });
+      } else {
+        navigate(`/admin`, {
+          replace: true,
+        });
+      }
+    }
+  }, []);
+
   const { data: users } = useQuery({
     queryKey: ["users"],
     queryFn: getAllUsers,
