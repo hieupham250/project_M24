@@ -7,7 +7,7 @@ export const getAllUserAnswers = async (
 ): Promise<AxiosResponse<any>> => {
   let url = `userAnswers`;
   if (userId && userId !== "" && examId && examId !== "") {
-    url += `/userAnswers?userId=${userId}&examId=${examId}`;
+    url += `?userId=${userId}&examId=${examId}`;
   }
   try {
     const response = await baseUrl.get(url);

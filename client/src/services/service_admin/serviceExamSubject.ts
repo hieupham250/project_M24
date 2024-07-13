@@ -2,10 +2,19 @@ import { AxiosResponse } from "axios";
 import baseUrl from "../../api";
 
 export const getAllExamSubjects = async (
-  courseId?: any
+  courseId?: any,
+  search?: any
 ): Promise<AxiosResponse<any>> => {
+  let url = `/examSubjects?`;
+  if (courseId && courseId !== "") {
+    url += `courseId=${courseId}`;
+  }
+  if (search && search !== "") {
+    url += `&title_like=${search}`;
+  }
+
   try {
-    const response = await baseUrl.get(`/examSubjects?courseId=${courseId}`);
+    const response = await baseUrl.get(url);
     return response;
   } catch (error) {
     throw new Error(`Error fetching examSubjects: ${error}`);

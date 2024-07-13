@@ -15,6 +15,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getAllExams } from "../services/service_admin/serviceExam";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import Swal from "sweetalert2";
 
 export default function QuestionsPage() {
   let { examId } = useParams();
@@ -29,7 +30,7 @@ export default function QuestionsPage() {
   });
 
   const [answers, setAnswers] = useState<any[]>([]);
-  const [timeLeft, setTimeLeft] = useState<number | null | any>(null);
+  const [timeLeft, setTimeLeft] = useState<number>(0);
   const navigate = useNavigate();
 
   const optionLetters = ["A", "B", "C", "D"];
@@ -40,21 +41,12 @@ export default function QuestionsPage() {
     setAnswers(newAnswers);
   };
 
-  const handleSubmit = () => {
-    alert("Nộp bài");
-    Cookies.set("userAnswer", JSON.stringify(answers));
-    localStorage.setItem("ExamTimer", timeLeft.toString());
-    localStorage.removeItem("timeLeft");
-    navigate(`/examCompletionPage/${examId}`, {
-      replace: true,
-    });
-  };
-
+  // lấy thời gian từ exam
   useEffect(() => {
     if (exams && exams?.data) {
       const savedTimeLeft = localStorage.getItem("timeLeft");
       if (savedTimeLeft) {
-        setTimeLeft(parseInt(savedTimeLeft));
+        setTimeLeft(Number(savedTimeLeft));
       } else {
         const duration = exams.data[0]?.duration || 0;
         setTimeLeft(duration * 60); // Chuyển đổi từ phút sang giây
@@ -69,20 +61,69 @@ export default function QuestionsPage() {
 
     const interval = setInterval(() => {
       setTimeLeft((prevTime: any) => {
-        if (prevTime <= 1) {
+        prevTime = prevTime - 1;
+        if (prevTime == 0) {
           clearInterval(interval);
-          handleSubmit();
+          handleTimeout();
           localStorage.removeItem("timeLeft");
           return 0;
+        } else {
+          localStorage.setItem("timeLeft", prevTime.toString()); // Lưu thời gian còn lại vào localStorage
+          return prevTime;
         }
-        const newTime = prevTime - 1;
-        localStorage.setItem("timeLeft", newTime.toString()); // Lưu thời gian còn lại vào localStorage
-        return newTime;
       });
     }, 1000);
 
     return () => clearInterval(interval);
   }, [timeLeft]);
+
+  const handleSubmit = () => {
+    Swal.fire({
+      title: "Bạn có muốn nộp bài?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Đúng vậy!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Cookies.set("userAnswer", JSON.stringify(answers));
+        let timeLeftLocal = localStorage.getItem("timeLeft");
+        localStorage.setItem(
+          "elapsedTime",
+          (exams?.data[0]?.duration * 60 - Number(timeLeftLocal)).toString()
+        ); // lưu thời gian trôi qua sau khi kết thúc bài thi
+
+        localStorage.removeItem("timeLeft");
+
+        navigate(`/examCompletionPage/${examId}`, {
+          replace: true,
+        });
+      }
+    });
+  };
+
+  const handleTimeout = () => {
+    Swal.fire({
+      title: "Hết giờ!",
+      text: "Bài thi của bạn đã hết giờ.",
+      icon: "info",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "OK",
+    }).then(() => {
+      Cookies.set("userAnswer", JSON.stringify(answers));
+      let timeLeft = localStorage.getItem("timeLeft");
+      localStorage.setItem(
+        "elapsedTime",
+        (exams?.data[0]?.duration * 60 - Number(timeLeft)).toString()
+      ); // lưu thời gian trôi qua sau khi kết thúc bài thi
+
+      localStorage.removeItem("timeLeft");
+      navigate(`/examCompletionPage/${examId}`, {
+        replace: true,
+      });
+    });
+  };
 
   const formatTime = (seconds: any) => {
     const minutes = Math.floor(seconds / 60);
@@ -142,7 +183,7 @@ export default function QuestionsPage() {
           </Grid>
           <Grid item xs={2.5} sx={{ backgroundColor: "white", p: 2 }}>
             <Typography sx={{ textAlign: "center", marginBottom: "15px" }}>
-              Thời gian: {formatTime(timeLeft)}
+              Thời gian còn lại: {formatTime(timeLeft)}
             </Typography>
             <Grid
               sx={{
@@ -168,8 +209,11 @@ export default function QuestionsPage() {
                 questions?.data?.map((_: any, index: any) => (
                   <Button
                     key={index}
-                    variant="outlined"
-                    sx={{ minWidth: "45px", p: 1 }}
+                    variant={answers[index] ? "contained" : "outlined"}
+                    sx={{
+                      minWidth: "45px",
+                      p: 1,
+                    }}
                   >
                     {index + 1}
                   </Button>

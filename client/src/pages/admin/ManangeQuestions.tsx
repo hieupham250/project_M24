@@ -6,6 +6,7 @@ import {
   Modal,
   Typography,
   TextField,
+  Autocomplete,
 } from "@mui/material";
 import { Edit, Delete, Close } from "@mui/icons-material";
 import { useQuery, useQueryClient } from "react-query";
@@ -23,12 +24,12 @@ import { useMemo, useState } from "react";
 import Swal from "sweetalert2";
 
 export default function ManangeQuestions() {
-  let { id } = useParams();
+  let { examId } = useParams();
 
   const queryClient = useQueryClient();
   const { data: questions } = useQuery({
-    queryKey: ["questions", id],
-    queryFn: () => getAllQuestions(id),
+    queryKey: ["questions", examId],
+    queryFn: () => getAllQuestions(examId),
   });
 
   const { data: exams } = useQuery({
@@ -41,7 +42,7 @@ export default function ManangeQuestions() {
   const [formAddOrUpdateQuestion, setFormAddOrUpdateQuestion] =
     useState<Question>({
       question: "",
-      examId: Number(id),
+      examId: Number(examId),
       options: ["", "", "", ""],
       correctAnswer: "",
     });
@@ -99,7 +100,7 @@ export default function ManangeQuestions() {
     setOpen(!open);
     setFormAddOrUpdateQuestion({
       question: "",
-      examId: Number(id),
+      examId: Number(examId),
       options: ["", "", "", ""],
       correctAnswer: "",
     });
@@ -140,9 +141,6 @@ export default function ManangeQuestions() {
         if (id === "question") {
           setErrorQuestion(true);
         }
-        if (id === "correctAnswer") {
-          setErrorCorrectAnswer(true);
-        }
         return { ...prev, [id]: value };
       }
     });
@@ -173,10 +171,7 @@ export default function ManangeQuestions() {
     if (
       formAddOrUpdateQuestion.question == "" ||
       formAddOrUpdateQuestion.options.some((opt) => opt == "") ||
-      formAddOrUpdateQuestion.correctAnswer == "" ||
-      !formAddOrUpdateQuestion.options.includes(
-        formAddOrUpdateQuestion.correctAnswer
-      )
+      !formAddOrUpdateQuestion.correctAnswer
     ) {
       setErrorQuestion(true);
       setErrorOptionA(true);
@@ -223,7 +218,7 @@ export default function ManangeQuestions() {
     }
     setFormAddOrUpdateQuestion({
       question: "",
-      examId: Number(id),
+      examId: Number(examId),
       options: ["", "", "", ""],
       correctAnswer: "",
     });
@@ -437,33 +432,35 @@ export default function ManangeQuestions() {
                   : ""
               }
             />
-            <TextField
-              id="correctAnswer"
-              label="Đáp án đúng"
-              variant="outlined"
+            <Autocomplete
+              options={formAddOrUpdateQuestion.options.filter(
+                (option) => option.trim() !== ""
+              )}
               value={formAddOrUpdateQuestion.correctAnswer || ""}
-              onChange={handleChange}
-              sx={{ width: "100%" }}
-              size="small"
-              error={
-                (errorCorrectAnswer &&
-                  formAddOrUpdateQuestion?.correctAnswer?.trim() == "") ||
-                (errorCorrectAnswer &&
-                  !formAddOrUpdateQuestion.options.includes(
-                    formAddOrUpdateQuestion.correctAnswer
-                  ))
-              }
-              helperText={
-                errorCorrectAnswer &&
-                formAddOrUpdateQuestion?.correctAnswer?.trim() == ""
-                  ? "Đáp án đúng không hợp lệ!"
-                  : errorCorrectAnswer &&
-                    !formAddOrUpdateQuestion.options.includes(
-                      formAddOrUpdateQuestion.correctAnswer
-                    )
-                  ? "Đáp án đúng phải là một trong các đáp án đã cung cấp!"
-                  : ""
-              }
+              onChange={(event, value) => {
+                setFormAddOrUpdateQuestion((prev: any) => ({
+                  ...prev,
+                  correctAnswer: value,
+                }));
+                if (value) {
+                  setErrorCorrectAnswer(false);
+                } else {
+                  setErrorCorrectAnswer(true);
+                }
+              }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Đáp án đúng"
+                  variant="outlined"
+                  margin="normal"
+                  fullWidth
+                  error={errorCorrectAnswer}
+                  helperText={
+                    errorCorrectAnswer ? "Đáp án đúng không được để trống" : ""
+                  }
+                />
+              )}
             />
             <Button variant="contained" type="submit" size="small">
               {typeButton === "add" ? "Thêm mới" : "Cập nhật"}

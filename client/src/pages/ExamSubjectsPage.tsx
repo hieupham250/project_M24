@@ -14,9 +14,10 @@ import { useState } from "react";
 
 export default function ExamSubjectsPage() {
   let { courseId } = useParams();
+  const [examSubjectSearch, setExamSubjectSearch] = useState<string>("");
   const { data: examSubjects } = useQuery({
-    queryKey: ["examSubjects", courseId],
-    queryFn: () => getAllExamSubjects(courseId),
+    queryKey: ["examSubjects", courseId, examSubjectSearch],
+    queryFn: () => getAllExamSubjects(courseId, examSubjectSearch),
   });
   const navigate = useNavigate();
 
@@ -156,13 +157,18 @@ export default function ExamSubjectsPage() {
               <TextField
                 id="outlined-basic"
                 label="Nhập từ khóa tìm kiếm"
-                value={""}
+                value={examSubjectSearch}
                 sx={{ width: "100%" }}
+                onChange={(e) => setExamSubjectSearch(e.target.value)}
               />
             </Grid>
 
             <Grid item xs={12}>
-              <Button sx={{ width: "100%" }} variant="contained">
+              <Button
+                sx={{ width: "100%" }}
+                variant="contained"
+                onClick={() => setExamSubjectSearch("")}
+              >
                 Bỏ lọc
               </Button>
             </Grid>

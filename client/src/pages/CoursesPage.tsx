@@ -7,18 +7,18 @@ import {
   Typography,
 } from "@mui/material";
 import { Favorite } from "@mui/icons-material";
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 import { getAllCourses } from "../services/service_admin/serviceCourse";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function CoursesPage() {
-  const queryClient = useQueryClient();
-  const { data: courses } = useQuery({
-    queryKey: ["courses"],
-    queryFn: () => getAllCourses(),
-  });
+  const [courseSearch, setCourseSearch] = useState<string>("");
   const navigate = useNavigate();
+  const { data: courses } = useQuery({
+    queryKey: ["courses", courseSearch],
+    queryFn: () => getAllCourses(courseSearch),
+  });
 
   const handleCourseClick = (courseId: any) => {
     navigate(`course/examSubject/${courseId}`);
@@ -154,12 +154,17 @@ export default function CoursesPage() {
               <TextField
                 id="outlined-basic"
                 label="Nhập từ khóa tìm kiếm"
-                value={""}
+                value={courseSearch}
                 sx={{ width: "100%" }}
+                onChange={(e) => setCourseSearch(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
-              <Button sx={{ width: "100%" }} variant="contained">
+              <Button
+                sx={{ width: "100%" }}
+                variant="contained"
+                onClick={() => setCourseSearch("")}
+              >
                 Bỏ lọc
               </Button>
             </Grid>

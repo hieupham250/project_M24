@@ -24,11 +24,11 @@ import Swal from "sweetalert2";
 import { useNavigate, useParams } from "react-router-dom";
 export default function ManageExams() {
   const queryClient = useQueryClient();
-  let { id } = useParams();
+  let { examSubjectId } = useParams();
 
   const { data: exams } = useQuery({
-    queryKey: ["exams", id],
-    queryFn: () => getAllExams(id),
+    queryKey: ["exams", examSubjectId],
+    queryFn: () => getAllExams(examSubjectId),
   });
 
   const { data: examSubjects } = useQuery({
@@ -46,7 +46,7 @@ export default function ManageExams() {
     title: "",
     description: "",
     duration: "",
-    examSubjectId: Number(id),
+    examSubjectId: Number(examSubjectId),
     created_at: "",
   });
   const [editExamId, setEditExamId] = useState<number | null>(null);
@@ -106,7 +106,7 @@ export default function ManageExams() {
       title: "",
       description: "",
       duration: "",
-      examSubjectId: Number(id),
+      examSubjectId: Number(examSubjectId),
       created_at: "",
     });
     setErrorTitle(false);
@@ -212,7 +212,7 @@ export default function ManageExams() {
       title: "",
       description: "",
       duration: "",
-      examSubjectId: Number(id),
+      examSubjectId: Number(examSubjectId),
       created_at: "",
     });
     setErrorTitle(false);
@@ -393,7 +393,7 @@ export default function ManageExams() {
               sx={{ width: "100%" }}
               value={
                 examSubjects?.data?.find(
-                  (examSubject: any) => examSubject.id == id
+                  (examSubject: any) => examSubject.id == examSubjectId
                 )?.title
               }
             />

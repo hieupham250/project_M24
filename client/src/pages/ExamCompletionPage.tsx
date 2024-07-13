@@ -21,13 +21,14 @@ export default function ExamCompletionPage() {
 
   const [userLogin, setUserLogin] = useState<any>();
   const [userAnswer, setUserAnswer] = useState<any[]>([]);
-  const [examTimer, setExamTimer] = useState<any>();
+  const [elapsedTimeLocal, setElapsedTimeLocal] = useState<number>(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     const userLoginCookie = Cookies.get("user");
     const userAnswerCookie = Cookies.get("userAnswer");
-    const ExamTimer = localStorage.getItem("ExamTimer");
+    const elapsedTimeLocal = localStorage.getItem("elapsedTime");
+
     if (userLoginCookie) {
       setUserLogin(JSON.parse(userLoginCookie));
     } else {
@@ -36,7 +37,9 @@ export default function ExamCompletionPage() {
     if (userAnswerCookie) {
       setUserAnswer(JSON.parse(userAnswerCookie));
     }
-    setExamTimer(ExamTimer);
+    if (elapsedTimeLocal) {
+      setElapsedTimeLocal(Number(elapsedTimeLocal));
+    }
   }, []);
 
   let count = 0;
@@ -55,7 +58,7 @@ export default function ExamCompletionPage() {
   };
 
   // tính điểm hoàn thành bài thi
-  score = (count / questions?.data.length) * 10;
+  score = Math.round((count / questions?.data.length) * 10);
 
   useEffect(() => {
     if (userLogin && userAnswer.length > 0) {
@@ -110,7 +113,7 @@ export default function ExamCompletionPage() {
           </Typography>
           <Typography variant="h6">Điểm số đạt được: {score} / 10</Typography>
           <Typography variant="h6">
-            Thời gian làm bài: {formatTime(examTimer)}
+            Thời gian làm bài: {formatTime(elapsedTimeLocal)}
           </Typography>
           <Box mt={3}>
             <Button

@@ -16,9 +16,10 @@ import Swal from "sweetalert2";
 
 export default function ExamsPage() {
   let { examSubjectId } = useParams();
+  const [examSearch, setExamSearch] = useState<string>("");
   const { data: exams } = useQuery({
-    queryKey: ["exams", examSubjectId],
-    queryFn: () => getAllExams(examSubjectId),
+    queryKey: ["exams", examSubjectId, examSearch],
+    queryFn: () => getAllExams(examSubjectId, examSearch),
   });
   const [userLogin, setUserLogin] = useState<any>();
 
@@ -34,6 +35,8 @@ export default function ExamsPage() {
 
   const handleExamClick = (examId: any) => {
     if (userLogin) {
+      localStorage.removeItem("elapsedTime");
+      localStorage.removeItem("timeLeft");
       navigate(`/course/examSubject/exam/question/${examId}`);
     } else {
       Swal.fire({
@@ -184,12 +187,17 @@ export default function ExamsPage() {
               <TextField
                 id="outlined-basic"
                 label="Nhập từ khóa tìm kiếm"
-                value={""}
+                value={examSearch}
                 sx={{ width: "100%" }}
+                onChange={(e) => setExamSearch(e.target.value)}
               />
             </Grid>
             <Grid item xs={12}>
-              <Button sx={{ width: "100%" }} variant="contained">
+              <Button
+                sx={{ width: "100%" }}
+                variant="contained"
+                onClick={() => setExamSearch("")}
+              >
                 Bỏ lọc
               </Button>
             </Grid>

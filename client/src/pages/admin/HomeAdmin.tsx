@@ -157,15 +157,15 @@ export default function HomeAdmin() {
             element={<ManageCourses></ManageCourses>}
           ></Route>
           <Route
-            path="courses/examSubjects/:id"
+            path="courses/examSubjects/:courseId"
             element={<ManageExamSubjects></ManageExamSubjects>}
           ></Route>
           <Route
-            path="courses/examSubjects/exams/:id"
+            path="courses/examSubjects/exams/:examSubjectId"
             element={<ManageExams></ManageExams>}
           ></Route>
           <Route
-            path="courses/examSubjects/exams/questions/:id"
+            path="courses/examSubjects/exams/questions/:examId"
             element={<ManangeQuestions></ManangeQuestions>}
           ></Route>
         </Routes>

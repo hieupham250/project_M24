@@ -211,7 +211,6 @@ export default function ManageCourses() {
 
   //hàm lấy id của khóa khoc tương ứng
   const handleRowClick = (params: any) => {
-    // navigate(`/examSubjects/${params.id}`);
     navigate(`/admin/courses/examSubjects/${params.id}`);
   };
 

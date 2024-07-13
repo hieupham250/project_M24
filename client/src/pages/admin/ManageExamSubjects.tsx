@@ -24,11 +24,11 @@ import { format } from "date-fns";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function ManageExamSubjects() {
-  let { id } = useParams();
+  let { courseId } = useParams();
   const queryClient = useQueryClient();
   const { data: examSubjects } = useQuery({
-    queryKey: ["examSubjects", id],
-    queryFn: () => getAllExamSubjects(id),
+    queryKey: ["examSubjects", courseId],
+    queryFn: () => getAllExamSubjects(courseId),
   });
 
   const { data: courses } = useQuery({
@@ -43,7 +43,7 @@ export default function ManageExamSubjects() {
   const [formAddOrUpdateExamSubject, setFormAddOrUpdateExamSubject] = useState({
     title: "",
     description: "",
-    courseId: Number(id),
+    courseId: Number(courseId),
     created_at: "",
   });
   const [editExamSubjectId, setEditExamSubjectId] = useState<number | null>(
@@ -105,7 +105,7 @@ export default function ManageExamSubjects() {
     setFormAddOrUpdateExamSubject({
       title: "",
       description: "",
-      courseId: Number(id),
+      courseId: Number(courseId),
       created_at: "",
     });
     setErrorTitle(false);
@@ -198,7 +198,7 @@ export default function ManageExamSubjects() {
     setFormAddOrUpdateExamSubject({
       title: "",
       description: "",
-      courseId: Number(id),
+      courseId: Number(courseId),
       created_at: "",
     });
     setErrorTitle(false);
@@ -363,7 +363,8 @@ export default function ManageExamSubjects() {
               variant="outlined"
               sx={{ width: "100%" }}
               value={
-                courses?.data?.find((course: any) => course.id == id)?.title
+                courses?.data?.find((course: any) => course.id == courseId)
+                  ?.title
               }
             />
 

@@ -1,9 +1,15 @@
 import { AxiosResponse } from "axios";
 import baseUrl from "../../api";
 
-export const getAllCourses = async (): Promise<AxiosResponse<any>> => {
+export const getAllCourses = async (
+  search?: any
+): Promise<AxiosResponse<any>> => {
+  let url = `/courses`;
+  if (search && search !== "") {
+    url += `?title_like=${search}`;
+  }
   try {
-    const response = await baseUrl.get("/courses");
+    const response = await baseUrl.get(url);
     return response;
   } catch (error) {
     throw new Error(`Error fetching courses: ${error}`);
