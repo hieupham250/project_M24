@@ -153,7 +153,12 @@ export default function ManageExamSubjects() {
     const currentDate = new Date();
     if (
       formAddOrUpdateExamSubject.title == "" ||
-      formAddOrUpdateExamSubject.description == ""
+      formAddOrUpdateExamSubject.description == "" ||
+      (examSubjects?.data?.some(
+        (examSubject: ExamSubject) =>
+          examSubject.title == formAddOrUpdateExamSubject.title
+      ) &&
+        typeButton == "add")
     ) {
       setErrorTitle(true);
       setErrorDescription(true);
@@ -324,7 +329,8 @@ export default function ManageExamSubjects() {
                   examSubjects?.data?.some(
                     (examSubject: ExamSubject) =>
                       examSubject.title == formAddOrUpdateExamSubject.title
-                  ))
+                  ) &&
+                  typeButton == "add")
               }
               helperText={
                 errorTitle && formAddOrUpdateExamSubject?.title?.trim() == ""
@@ -333,7 +339,8 @@ export default function ManageExamSubjects() {
                     examSubjects?.data?.some(
                       (examSubject: ExamSubject) =>
                         examSubject.title == formAddOrUpdateExamSubject.title
-                    )
+                    ) &&
+                    typeButton == "add"
                   ? "Tiêu đề đã tồn tại!"
                   : ""
               }
@@ -358,7 +365,7 @@ export default function ManageExamSubjects() {
             />
             <TextField
               id="examSubjectId"
-              label="Môn thi"
+              label="Khóa thi"
               variant="outlined"
               sx={{ width: "100%" }}
               value={

@@ -15,9 +15,9 @@
     },
     {
       "fullName": "Võ Thị Như Ý",
-      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-react-8dc1e.appspot.com/o/avatars%2Fbackgroud.jpg?alt=media&token=ae5fe8ea-cde4-44a2-a67a-74033d8a59bd",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-react-8dc1e.appspot.com/o/avatars%2Fdesktop-wallpaper-2560x1080-backgrounds-pinterest-anime-world-pc.jpg?alt=media&token=3d81c6ae-8052-44af-a6ba-d84bb6b234f4",
       "email": "voy@gmail.com",
-      "phone": "0371947215",
+      "phone": "0854534782",
       "address": "Hồ Chí Minh",
       "password": "$2a$10$rvp9bRCNOO5L8hcPP4y26uB9chlRIrbbNk10vERGFoD8N77q9ze6W",
       "dayOfBirth": "2004-09-18",
@@ -45,12 +45,38 @@
       "email": "sang@gmail.com",
       "phone": "",
       "address": "",
-      "password": "$2a$10$veWDMsRPMu6PlOUTIvUI3.MKdV.GGEWXc/pGp.omMNQ6Be9hUKvv2",
+      "password": "$2a$10$tOIMHgszDjLfi0XYiHuAUutCD9oU4y7kHYNGNFjdrI6yMPVmjHFSK",
       "dayOfBirth": "2004-07-26",
       "status": true,
       "role": "User",
-      "created_at": "2024-07-14T10:17:05.333Z",
+      "created_at": "2024-07-14T15:07:19.824Z",
       "id": 4
+    },
+    {
+      "fullName": "Cao Thị Mỹ Tâm",
+      "avatar": "",
+      "email": "tam@gmail.com",
+      "phone": "",
+      "address": "",
+      "password": "$2a$10$yEquHWtBcEuoC7u7EfR5cuoDOZhfsvRDoAORzJaerh1A.Eqy63Rry",
+      "dayOfBirth": "2004-07-27",
+      "status": true,
+      "role": "User",
+      "created_at": "2024-07-14T15:07:50.166Z",
+      "id": 5
+    },
+    {
+      "fullName": "Trần Hồng Quang",
+      "avatar": "",
+      "email": "quang@gmail.com",
+      "phone": "",
+      "address": "",
+      "password": "$2a$10$1C7bXxTe/Ut12Vq/wKTs5OJM9HsdPsCvAKA2MuJVExwMWxIsSrQCq",
+      "dayOfBirth": "2004-05-13",
+      "status": true,
+      "role": "User",
+      "created_at": "2024-07-14T15:08:33.760Z",
+      "id": 6
     }
   ],
   "courses": [
@@ -65,6 +91,24 @@
       "description": "Khóa học dành cho học sinh 10,11,12",
       "created_at": "2024-07-14T01:12:43.229Z",
       "id": 2
+    },
+    {
+      "title": "Khóa luyện thi học kỳ 1 cho lớp 10",
+      "description": "Khóa luyện thi học kỳ 1 cho lớp 10",
+      "created_at": "2024-07-14T13:53:19.446Z",
+      "id": 3
+    },
+    {
+      "title": "Khóa luyện thi học kỳ 1 cho lớp 11",
+      "description": "Khóa luyện thi học kỳ 1 cho lớp 11",
+      "created_at": "2024-07-14T13:53:28.333Z",
+      "id": 4
+    },
+    {
+      "title": "Khóa luyện thi học kỳ 1 cho lớp 12",
+      "description": "Khóa luyện thi học kỳ 1 cho lớp 12",
+      "created_at": "2024-07-14T13:53:38.428Z",
+      "id": 5
     }
   ],
   "examSubjects": [
@@ -81,6 +125,41 @@
       "courseId": 2,
       "created_at": "2024-07-13T03:35:06.924Z",
       "id": 2
+    },
+    {
+      "title": "Môn Toán",
+      "description": "Môn Toán",
+      "courseId": 3,
+      "created_at": "2024-07-14T13:54:09.960Z",
+      "id": 3
+    },
+    {
+      "title": "Môn Hóa",
+      "description": "Môn Hóa",
+      "courseId": 3,
+      "created_at": "2024-07-14T13:54:22.915Z",
+      "id": 4
+    },
+    {
+      "title": "Môn Sinh",
+      "description": "Môn Sinh",
+      "courseId": 3,
+      "created_at": "2024-07-14T13:54:34.299Z",
+      "id": 5
+    },
+    {
+      "title": "Môn Văn",
+      "description": "Môn Văn",
+      "courseId": 3,
+      "created_at": "2024-07-14T13:55:00.838Z",
+      "id": 6
+    },
+    {
+      "title": "Môn Địa Lý",
+      "description": "Môn Địa Lý",
+      "courseId": 3,
+      "created_at": "2024-07-14T13:55:18.116Z",
+      "id": 7
     }
   ],
   "exams": [
@@ -101,12 +180,204 @@
       "id": 2
     },
     {
-      "title": "Đề thi hóa học cơ bản lớp 10",
-      "description": "Đề thi gồm các câu hỏi cơ bản về hóa học cơ bản lớp 10",
-      "duration": 45,
+      "title": "Đề số 1",
+      "description": "Đề số 1",
+      "duration": 10,
       "examSubjectId": 3,
-      "created_at": "2024-07-13T03:38:32.435Z",
+      "created_at": "2024-07-14T13:57:18.687Z",
       "id": 3
+    },
+    {
+      "title": "Đề thi 1",
+      "description": "Đề thi 1",
+      "duration": 10,
+      "examSubjectId": 4,
+      "created_at": "2024-07-14T14:02:19.592Z",
+      "id": 4
+    },
+    {
+      "title": "Đề thi 2",
+      "description": "Đề thi 2",
+      "duration": 10,
+      "examSubjectId": 4,
+      "created_at": "2024-07-14T14:03:06.077Z",
+      "id": 5
+    },
+    {
+      "title": "Đề thi 3",
+      "description": "Đề thi 3",
+      "duration": 10,
+      "examSubjectId": 4,
+      "created_at": "2024-07-14T14:03:20.627Z",
+      "id": 6
+    },
+    {
+      "title": "Đề thi 4",
+      "description": "Đề thi 4",
+      "duration": 10,
+      "examSubjectId": 4,
+      "created_at": "2024-07-14T14:03:30.530Z",
+      "id": 7
+    },
+    {
+      "title": "Đề thi 5",
+      "description": "Đề thi 5",
+      "duration": 10,
+      "examSubjectId": 4,
+      "created_at": "2024-07-14T14:03:41.050Z",
+      "id": 8
+    },
+    {
+      "title": "Đề thi 2",
+      "description": "Đề thi 2",
+      "duration": 10,
+      "examSubjectId": 3,
+      "created_at": "2024-07-14T14:04:18.909Z",
+      "id": 9
+    },
+    {
+      "title": "Đề thi 3",
+      "description": "Đề thi 3",
+      "duration": 10,
+      "examSubjectId": 3,
+      "created_at": "2024-07-14T14:04:31.090Z",
+      "id": 10
+    },
+    {
+      "title": "Đề thi 4",
+      "description": "Đề thi 4",
+      "duration": 10,
+      "examSubjectId": 3,
+      "created_at": "2024-07-14T14:04:40.484Z",
+      "id": 11
+    },
+    {
+      "title": "Đề thi 5",
+      "description": "Đề thi 5",
+      "duration": 10,
+      "examSubjectId": 3,
+      "created_at": "2024-07-14T14:04:53.667Z",
+      "id": 12
+    },
+    {
+      "title": "Đề thi 1",
+      "description": "Đề thi 1",
+      "duration": 10,
+      "examSubjectId": 5,
+      "created_at": "2024-07-14T14:29:48.537Z",
+      "id": 13
+    },
+    {
+      "title": "Đề thi 2",
+      "description": "Đề thi 2",
+      "duration": 10,
+      "examSubjectId": 5,
+      "created_at": "2024-07-14T14:29:58.297Z",
+      "id": 14
+    },
+    {
+      "title": "Đề thi 3",
+      "description": "Đề thi 3",
+      "duration": 10,
+      "examSubjectId": 5,
+      "created_at": "2024-07-14T14:30:07.648Z",
+      "id": 15
+    },
+    {
+      "title": "Đề thi 4",
+      "description": "Đề thi 4",
+      "duration": 10,
+      "examSubjectId": 5,
+      "created_at": "2024-07-14T14:30:17.561Z",
+      "id": 16
+    },
+    {
+      "title": "Đề thi 5",
+      "description": "Đề thi 5",
+      "duration": 10,
+      "examSubjectId": 5,
+      "created_at": "2024-07-14T14:30:25.249Z",
+      "id": 17
+    },
+    {
+      "title": "Đề thi 1",
+      "description": "Đề thi 1",
+      "duration": 10,
+      "examSubjectId": 6,
+      "created_at": "2024-07-14T14:40:04.919Z",
+      "id": 18
+    },
+    {
+      "title": "Đề thi 2",
+      "description": "Đề thi 2",
+      "duration": 10,
+      "examSubjectId": 6,
+      "created_at": "2024-07-14T14:40:15.416Z",
+      "id": 19
+    },
+    {
+      "title": "Đề thi 3",
+      "description": "Đề thi 3",
+      "duration": 10,
+      "examSubjectId": 6,
+      "created_at": "2024-07-14T14:40:28.735Z",
+      "id": 20
+    },
+    {
+      "title": "Đề thi 4",
+      "description": "Đề thi 4",
+      "duration": 10,
+      "examSubjectId": 6,
+      "created_at": "2024-07-14T14:40:39.072Z",
+      "id": 21
+    },
+    {
+      "title": "Đề thi 5",
+      "description": "Đề thi 5",
+      "duration": 10,
+      "examSubjectId": 6,
+      "created_at": "2024-07-14T14:40:46.344Z",
+      "id": 22
+    },
+    {
+      "title": "Đề thi 1",
+      "description": "Đề thi 1",
+      "duration": 10,
+      "examSubjectId": 7,
+      "created_at": "2024-07-14T14:55:08.775Z",
+      "id": 23
+    },
+    {
+      "title": "Đề thi 2",
+      "description": "Đề thi 2",
+      "duration": 10,
+      "examSubjectId": 7,
+      "created_at": "2024-07-14T14:49:42.927Z",
+      "id": 24
+    },
+    {
+      "title": "Đề thi 3",
+      "description": "Đề thi 3",
+      "duration": 10,
+      "examSubjectId": 7,
+      "created_at": "2024-07-14T14:49:51.552Z",
+      "id": 25
+    },
+    {
+      "title": "Đề thi 4",
+      "description": "Đề thi 4",
+      "duration": 10,
+      "examSubjectId": 7,
+      "created_at": "2024-07-14T14:50:01.120Z",
+      "id": 26
+    },
+    {
+      "title": "Đề thi 5",
+      "description": "Đề thi 5",
+      "duration": 10,
+      "examSubjectId": 7,
+      "created_at": "2024-07-14T14:50:14.336Z",
+      "id": 27
     }
   ],
   "questions": [
@@ -133,26 +404,614 @@
       ],
       "correctAnswer": "Tam giác vuông",
       "id": 2
+    },
+    {
+      "question": "Cho các mệnh đề sau:  (I) \"21 là số nguyên tố\"  (II) \"Phương trình  x 2 + 4 x − 1 = 0   có hai nghiệm thực\"  (III) \" √ 2 > 3 2 \"  (IV) \"Số dư khi chia 2006 cho 4 là 2\"  (V) \"Năm 2016 là năm nhuận\"  Trong các mệnh đề trên, số mệnh đề đúng là:",
+      "examId": 3,
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswer": "3",
+      "id": 3
+    },
+    {
+      "question": "Cho các mệnh đề:  (1) “  √ 3  là số vô tỉ nếu và chỉ nếu 3 là số hữu tỉ”  (2) “Tứ giác là hình thang có hai cạnh bên bằng nhau nếu và chỉ nếu nó là hình bình hành”  (3) “Tứ giác là hình bình hành có hai cạnh kề bằng nhau nếu và chỉ nếu nó là hình thoi”  (4) “3 > 4 khi và chỉ khi 1 > 2”  Số mệnh đề sai là:",
+      "examId": 3,
+      "options": [
+        "1",
+        "4",
+        "2",
+        "3"
+      ],
+      "correctAnswer": "1",
+      "id": 4
+    },
+    {
+      "question": "Trong các mệnh đề sau, mệnh đề nào sai?",
+      "examId": 9,
+      "options": [
+        "Điều kiện cần để tứ giác là hình thang cân là tứ giác đó có hai đường chéo bằng nhau",
+        "Điều kiện đủ để số tự nhiên n chia hết cho 24 là n chia hết cho 6 và 4",
+        "Điều kiện đủ để  n 2 + 20  là một hợp số là n là số nguyên tố lớn hơn 3",
+        "Điều kiện đủ để  n 2 – 1  chia hết cho 24 là n là số nguyên tố lớn hơn 3"
+      ],
+      "correctAnswer": "Điều kiện đủ để số tự nhiên n chia hết cho 24 là n chia hết cho 6 và 4",
+      "id": 5
+    },
+    {
+      "question": "Mệnh đề đảo của mệnh đề “Ba số tự nhiên liên tiếp thì có tổng chia hết cho 3” được phát biểu là:",
+      "examId": 9,
+      "options": [
+        "Ba số tự nhiên có tổng chia hết cho 3 thì liên tiếp",
+        "Ba số tự nhiên chia hết cho 3 thì liên tiếp",
+        "Ba số tự nhiên có tổng chia hết cho 3 thì mỗi số chia hết cho 3",
+        "Ba số tự nhiên liên tiếp thì chia hết cho 3"
+      ],
+      "correctAnswer": "Ba số tự nhiên có tổng chia hết cho 3 thì liên tiếp",
+      "id": 6
+    },
+    {
+      "question": "Cho hai mệnh đề P và Q. Phát biểu nào sau đây sai về mệnh đề đúng  P ⇔ Q?",
+      "examId": 10,
+      "options": [
+        "P khi và chỉ khi Q",
+        "P tương đương Q",
+        "là điều kiện cần để có Q",
+        "P là điều kiện cần và đủ để có Q"
+      ],
+      "correctAnswer": "là điều kiện cần để có Q",
+      "id": 7
+    },
+    {
+      "question": "Cho hai mệnh đề P, Q, chọn mệnh đề đúng:",
+      "examId": 10,
+      "options": [
+        "Nếu P đúng, Q đúng thì  P ⇒ Q  sai",
+        "Nếu P sai thì  P ⇒ Q  luôn đúng",
+        "Nếu P đúng thì  P ⇒ Q  luôn đúng",
+        "Nếu Q sai thì  P ⇒ Q  luôn sai"
+      ],
+      "correctAnswer": "Nếu P sai thì  P ⇒ Q  luôn đúng",
+      "id": 8
+    },
+    {
+      "question": "Trong các câu sau, câu nào không phải là mệnh đề?",
+      "examId": 11,
+      "options": [
+        "Buồn ngủ quá! ",
+        "Hình thoi có hai đường chéo vuông góc với nhau.  ",
+        "8 là số chính phương.     ",
+        "Băng Cốc là thủ đô của Mianma."
+      ],
+      "correctAnswer": "Buồn ngủ quá! ",
+      "id": 9
+    },
+    {
+      "question": "Trong các câu sau, câu nào là mệnh đề?",
+      "examId": 11,
+      "options": [
+        "Đi ngủ đi!",
+        "Trung Quốc là nước đông dân nhất thế giới.",
+        "Bạn học trường nào?",
+        "Không được làm việc riêng trong giờ học."
+      ],
+      "correctAnswer": "Trung Quốc là nước đông dân nhất thế giới.",
+      "id": 10
+    },
+    {
+      "question": "Trong các mệnh đề sau, mệnh đề nào là mệnh đề đúng?",
+      "examId": 12,
+      "options": [
+        "Tổng của hai số tự nhiên là một số chẵn khi và chỉ khi cả hai số đều là số chẵn.",
+        "Tích của hai số tự nhiên là một số chẵn khi và chỉ khi cả hai số đều là số chẵn.  ",
+        "Tổng của hai số tự nhiên là một số lẻ khi và chỉ khi cả hai số đều là số lẻ.",
+        "Tích của hai số tự nhiên là một số lẻ khi và chỉ khi cả hai số đều là số lẻ."
+      ],
+      "correctAnswer": "Tích của hai số tự nhiên là một số lẻ khi và chỉ khi cả hai số đều là số lẻ.",
+      "id": 11
+    },
+    {
+      "question": "Trong các mệnh đề sau, mệnh đề nào là mệnh đề sai?",
+      "examId": 12,
+      "options": [
+        "ai tam giác bằng nhau khi và chỉ khi chúng đồng dạng và có một góc bằng nhau",
+        "Một tứ giác là hình chữ nhật khi và chỉ khi chúng có 3 góc vuông  ",
+        "Một tam giác là vuông khi và chỉ khi nó có một góc bằng tổng hai góc còn lại",
+        "Một tam giác là đều khi và chỉ khi chúng có hai đường trung tuyến bằng nhau và có một góc bằng   60 °"
+      ],
+      "correctAnswer": "ai tam giác bằng nhau khi và chỉ khi chúng đồng dạng và có một góc bằng nhau",
+      "id": 12
+    },
+    {
+      "question": "Tổng số hạt p, n, e của một nguyên tử bằng 40. Đó là nguyên tử của nguyên tố nào sau đây?",
+      "examId": 4,
+      "options": [
+        " Ca",
+        "Ba",
+        "Al",
+        "Fe"
+      ],
+      "correctAnswer": "Al",
+      "id": 13
+    },
+    {
+      "question": "Khối lượng nguyên tử của Fe là ?",
+      "examId": 4,
+      "options": [
+        "56",
+        "40",
+        "23",
+        "39"
+      ],
+      "correctAnswer": "56",
+      "id": 14
+    },
+    {
+      "question": "Khối lượng nguyên tử của Natri là ?",
+      "examId": 5,
+      "options": [
+        "23",
+        "40",
+        "39",
+        "56"
+      ],
+      "correctAnswer": "23",
+      "id": 15
+    },
+    {
+      "question": "Nếu khối lượng các chất bằng nhau thì lượng O2 thu được nhiều nhất ở:",
+      "examId": 5,
+      "options": [
+        "KClO3",
+        "H2O2",
+        "KMnO4",
+        "Bằng nhau"
+      ],
+      "correctAnswer": "KClO3",
+      "id": 16
+    },
+    {
+      "question": "Dẫn khí clo vào dung dịch  F e C l 2 , đun nóng thấy dung dịch từ lục nhạt chuyển sang màu vàng. Phản ứng trên thuộc loại phản ứng",
+      "examId": 6,
+      "options": [
+        "oxi hóa – khử",
+        "phân hủy",
+        "thế",
+        "trung hòa"
+      ],
+      "correctAnswer": "oxi hóa – khử",
+      "id": 17
+    },
+    {
+      "question": "Dùng hóa chất nào (trong các chất cho sau đây) làm thuốc thử để phân biệt hai dung dịch  C u ( N O 3 ) 2 ,   M g ( N O 3 ) 2 ?",
+      "examId": 6,
+      "options": [
+        "HCl",
+        "H 2 S O 4",
+        "H 2 S O 3",
+        "H 2 S"
+      ],
+      "correctAnswer": "H 2 S",
+      "id": 18
+    },
+    {
+      "question": "Trong các tính chất sau, tính chất nào không phải của axit  H 2 S O 4  đặc, nguội?",
+      "examId": 7,
+      "options": [
+        "hòa tan kim loại Al, Fe",
+        "tan trong nước, tỏa nhiệt",
+        "làm hóa than vải, giấy, đường",
+        "háo nước"
+      ],
+      "correctAnswer": "hòa tan kim loại Al, Fe",
+      "id": 19
+    },
+    {
+      "question": "Phát biểu nào không đúng khi nói về khả năng phản ứng của lưu huỳnh?",
+      "examId": 7,
+      "options": [
+        "Lưu huỳnh vừa thể hiện tính khử, vừa thể hiện tính oxi hóa",
+        "Ở nhiệt độ cao lưu huỳnh tác dụng với nhiều kim loại thể hiện tính oxi hóa",
+        "Thủy ngân phản ứng với lưu huỳnh ở nhiệt độ thường",
+        "Ở nhiệt độ thích hợp, lưu huỳnh tác dụng với hầu hết các phi kim mạnh hơn lưu huỳnh, thể hiện tính oxi hóa"
+      ],
+      "correctAnswer": "Ở nhiệt độ thích hợp, lưu huỳnh tác dụng với hầu hết các phi kim mạnh hơn lưu huỳnh, thể hiện tính oxi hóa",
+      "id": 20
+    },
+    {
+      "question": "Trong các chất sau:  C l 2 ,   F e C l 3 ,   H C l ,   H 2 S ,   N a 2 S O 4 , những chất có thể tác dụng với KI tạo  I 2  là",
+      "examId": 8,
+      "options": [
+        "F e C l 3 ,   C l 2",
+        "N a 2 S O 4 ,   H 2 S",
+        "F e C l 3 ,   H C l",
+        "HCl"
+      ],
+      "correctAnswer": "F e C l 3 ,   C l 2",
+      "id": 21
+    },
+    {
+      "question": "Trong ion  X O 3 −  có 42 electron. Công thức hóa học của  X O 3 −  là",
+      "examId": 8,
+      "options": [
+        "N O 3 −",
+        "P O 3 −",
+        "B r O 3 −",
+        "C l O 3 −"
+      ],
+      "correctAnswer": "C l O 3 −",
+      "id": 22
+    },
+    {
+      "question": "Sinh học nghiên cứu về",
+      "examId": 13,
+      "options": [
+        "sự sống.",
+        "con người.",
+        "động vật.",
+        "thực vật."
+      ],
+      "correctAnswer": "sự sống.",
+      "id": 23
+    },
+    {
+      "question": "Lĩnh vực nghiên cứu sinh học được tìm hiểu trong lớp 10 là",
+      "examId": 13,
+      "options": [
+        "sinh học tế bào và thế giới vi sinh vật.",
+        "sinh học cơ thể.",
+        "di truyền học, tiến hóa và sinh thái học.",
+        "sinh học quần thể."
+      ],
+      "correctAnswer": "sinh học tế bào và thế giới vi sinh vật.",
+      "id": 24
+    },
+    {
+      "question": "Sinh học không có vai trò nào sau đây?",
+      "examId": 14,
+      "options": [
+        "Giảm tỉ lệ bệnh tật, gia tăng đáng kể tuổi thọ của con người.",
+        "Bồi đắp thái độ tôn trọng, yêu quý và giữ gìn sự đa dạng sinh giới.",
+        "Ổn định tình hình chính trị và hòa bình trên thế giới.",
+        "Cải thiện kết quả học tập của bản thân."
+      ],
+      "correctAnswer": "Ổn định tình hình chính trị và hòa bình trên thế giới.",
+      "id": 25
+    },
+    {
+      "question": " Phát triển bền vững là sự phát triển",
+      "examId": 14,
+      "options": [
+        "đáp ứng được nhu cầu của xã hội hiện tại, nhưng không làm tổn hại đến khả năng tiếp cận với nhu cầu phát triển của các thế hệ.",
+        "đáp ứng được nhu cầu của xã hội hiện tại, nhưng chỉ làm tổn hại nhỏ đến khả năng tiếp cận với nhu cầu phát triển của các thế hệ.",
+        "tăng cường nhu cầu của xã hội hiện tại, nhưng không làm tổn hại đến khả năng tiếp cận với nhu cầu phát triển của các thế hệ.",
+        "tăng cường nhu cầu của xã hội hiện tại, nhưng chỉ làm tổn hại nhỏ đến khả năng tiếp cận với nhu cầu phát triển của các thế hệ."
+      ],
+      "correctAnswer": "đáp ứng được nhu cầu của xã hội hiện tại, nhưng không làm tổn hại đến khả năng tiếp cận với nhu cầu phát triển của các thế hệ.",
+      "id": 26
+    },
+    {
+      "question": "Hoạt động nào sau đây có thể ảnh hưởng tích cực đến sự phát triển bền vững?",
+      "examId": 15,
+      "options": [
+        "Vứt rác bừa bãi, không đúng quy định.",
+        "Xả chất thải chưa qua xử lí vào môi trường.",
+        "Săn bắt động vật, thực vật quý hiếm.",
+        "Trồng và bảo vệ thảm thực vật."
+      ],
+      "correctAnswer": "Trồng và bảo vệ thảm thực vật.",
+      "id": 27
+    },
+    {
+      "question": "Phát biểu nào sau đây thể hiện vai trò của sinh học trong sự phát triển bền vững?",
+      "examId": 15,
+      "options": [
+        "Sinh học là cơ sở đưa ra biện pháp học tập và làm việc hiệu quả.",
+        "Sinh học là cơ sở đưa ra biện pháp phát triển kinh tế - xã hội vượt bậc.",
+        "Sinh học là cơ sở đưa ra biện pháp nâng cao tuổi thọ và sức khỏe của con người.",
+        "Sinh học là cơ sở đưa ra biện pháp sử dụng hợp lí tài nguyên thiên nhiên."
+      ],
+      "correctAnswer": "Sinh học là cơ sở đưa ra biện pháp sử dụng hợp lí tài nguyên thiên nhiên.",
+      "id": 28
+    },
+    {
+      "question": "Ví dụ nào sau đây thể hiện vai trò của sinh học đối với phát triển kinh tế?",
+      "examId": 16,
+      "options": [
+        "Tạo ra các giống cây trồng mới có năng suất và chất lượng cao.",
+        "Giải mã hệ gene của tất cả các sinh vật và con người.",
+        "Tìm ra các phương pháp phòng và chữa trị bệnh hiệu quả.",
+        "Tìm ra nhiều chủng vi sinh vật có khả năng phân hủy rác thải nhựa."
+      ],
+      "correctAnswer": "Tạo ra các giống cây trồng mới có năng suất và chất lượng cao.",
+      "id": 29
+    },
+    {
+      "question": "Nhóm sản phẩm nào sau đây có liên quan trực tiếp đến các ứng dụng sinh học?",
+      "examId": 16,
+      "options": [
+        "Nước tẩy Javen, bột giặt sinh học.",
+        "Thuốc kháng sinh, thực phẩm lên men.",
+        "Thuốc kháng sinh, thực phẩm lên men.",
+        "Nước muối sinh lí, men tiêu hóa."
+      ],
+      "correctAnswer": "Thuốc kháng sinh, thực phẩm lên men.",
+      "id": 30
+    },
+    {
+      "question": "Chúng ta cần phân loại rác thải và hạn chế sử dụng sản phẩm làm phát sinh rác thải nhựa nhằm",
+      "examId": 17,
+      "options": [
+        " tiết kiệm chi phí tiêu dùng cho người sử dụng.",
+        "đảm bảo tính an toàn cho người sử dụng.",
+        "tiết kiệm tài nguyên và giảm thiểu ô nhiễm môi trường.",
+        "tuân thủ đúng các tiêu chuẩn về đạo đức sinh học."
+      ],
+      "correctAnswer": "tiết kiệm tài nguyên và giảm thiểu ô nhiễm môi trường.",
+      "id": 31
+    },
+    {
+      "question": "Hoạt động nào dưới đây có thể gây nên mối lo ngại của xã hội về đạo đức sinh học?",
+      "examId": 17,
+      "options": [
+        "Việc chẩn đoán, lựa chọn giới tính thai nhi.",
+        "Việc chẩn đoán giai đoạn phát triển của bệnh.",
+        "Việc chẩn đoán khả năng sinh sản của con người.",
+        "Việc sử dụng các biện pháp tránh thai."
+      ],
+      "correctAnswer": "Việc chẩn đoán, lựa chọn giới tính thai nhi.",
+      "id": 32
+    },
+    {
+      "question": "Văn học Việt Nam do các bộ phận văn học nào hợp thành?",
+      "examId": 18,
+      "options": [
+        "Văn học dân gian và văn học trung đại.",
+        "Văn học trung đại và văn học hiện đại",
+        "Văn học dân gian và văn học viết.",
+        "Văn học hiện đại và văn học dân gian."
+      ],
+      "correctAnswer": "Văn học dân gian và văn học viết.",
+      "id": 33
+    },
+    {
+      "question": "Đặc điểm cơ bản nhất của thể loại truyền kỳ là gì?",
+      "examId": 18,
+      "options": [
+        "Dùng yếu tố hoang đường, kỳ ảo làm phương thức nghệ thuật để phản ánh đời sống hiện thực.",
+        "Lựa chọn những sự kiện lịch sử của quá khứ để phản ánh hiện thực.",
+        "Có giá trị hiện thực và nhân đạo cao.",
+        "Truyền bá niềm tin vào những điều tốt đẹp cho nhân dân."
+      ],
+      "correctAnswer": "Dùng yếu tố hoang đường, kỳ ảo làm phương thức nghệ thuật để phản ánh đời sống hiện thực.",
+      "id": 34
+    },
+    {
+      "question": "Thời kì văn học Việt Nam từ đầu thế kỉ XX - Cách mạng Tháng Tám 1945 có sự chuyển biến lớn là do đâu?",
+      "examId": 19,
+      "options": [
+        "Lịch sử Việt Nam có sự thay đổi lớn.",
+        "Nền văn học Việt Nam có sự xuất hiện của các nhà trí thức yêu nước.",
+        " Tư tưởng văn hóa Phương Đông du nhập",
+        "Cơ cấu xã hội Việt Nam thay đổi."
+      ],
+      "correctAnswer": "Lịch sử Việt Nam có sự thay đổi lớn.",
+      "id": 35
+    },
+    {
+      "question": "Nghề in ra đời ở Việt Nam vào khoảng thời gian nào?",
+      "examId": 19,
+      "options": [
+        "Thời kì văn học từ đầu thế kỉ XX- Cách mạng Tháng Tám 1945.",
+        "Thời kì văn học từ đầu thế kỉ XIX- Cách mạng Tháng Tám 1945.",
+        "Thời kì văn học từ cuối thế kỉ XIX- Cách mạng Tháng Tám 1945.",
+        "Thời kì văn học từ đầu thế kỉ XVIII- Cách mạng Tháng Tám 1945."
+      ],
+      "correctAnswer": "Thời kì văn học từ đầu thế kỉ XX- Cách mạng Tháng Tám 1945.",
+      "id": 36
+    },
+    {
+      "question": "Ý nào sau đây không đúng khi nói về văn học viết của nước ta?",
+      "examId": 20,
+      "options": [
+        " Là sáng tác của trí thức, được ghi lại bằng chữ viết, mang đậm dấu ấn sáng tạo của cá nhân.",
+        "Hệ thống chữ viết phong phú, gồm cả chữ Hán, chữ Nôm, chữ quốc ngữ.",
+        " Có tính tập thể và được lưu truyền với các sinh hoạt trong đời sống cộng đồng.",
+        "Thể loại đa dạng như truyện kí, tiểu thuyết chương hồi, tiểu thuyết, truyện ngắn, kí, kịch nói, kịch thơ…"
+      ],
+      "correctAnswer": " Có tính tập thể và được lưu truyền với các sinh hoạt trong đời sống cộng đồng.",
+      "id": 37
+    },
+    {
+      "question": "Văn học Việt Nam từ đầu thế kỉ XX - Cách mạng tháng Tám 1945 chịu ảnh hưởng của:",
+      "examId": 20,
+      "options": [
+        "Văn hóa phương Đông hiện đại.",
+        "Văn hóa phương Tây cận đại.",
+        "Văn hóa phương Tây hiện đại.",
+        "Văn hóa phương Đông trung đại."
+      ],
+      "correctAnswer": "Văn hóa phương Tây hiện đại.",
+      "id": 38
+    },
+    {
+      "question": "Chữ Nôm là loại chữ nào?",
+      "examId": 21,
+      "options": [
+        "Loại chữ người Việt cổ tự sáng tạo ra để ghi âm tiếng Việt.",
+        "Loại chữ cổ của người Việt, dựa vào chữ Hán để ghi âm tiếng Việt.",
+        "Loại chữ cổ của người Việt, dùng chữ Hán để ghi các văn bản viết.",
+        "Loại chữ của người Việt cổ, dùng chữ Hán để ghi các văn bản nói."
+      ],
+      "correctAnswer": "Loại chữ cổ của người Việt, dựa vào chữ Hán để ghi âm tiếng Việt.",
+      "id": 39
+    },
+    {
+      "question": "Văn học Việt Nam thời kì từ Cách mạng tháng Tám 1945 đến hết thế kỉ XX có sự thống nhất về tư tưởng và hướng hẳn về đại chúng nhân dân là do đâu?",
+      "examId": 21,
+      "options": [
+        "Có sự du nhập của hệ tư tưởng mới từ phương Tây.",
+        "Có sự lãnh đạo của Đảng Cộng sản Việt Nam.",
+        "Có sự thay đổi về quan điểm thẩm mĩ của tầng lớp trí thức.",
+        "Hình thái xã hội Việt Nam chuyển từ phong kiến sang chủ nghĩa xã hội."
+      ],
+      "correctAnswer": "Có sự lãnh đạo của Đảng Cộng sản Việt Nam.",
+      "id": 40
+    },
+    {
+      "question": "Trong những câu sau câu nào không phải là nét đặc sắc truyền thống của văn học Việt Nam?",
+      "examId": 22,
+      "options": [
+        " Lòng yêu nước, niềm tự hào dân tộc",
+        "Lòng yêu nước gắn liền với tình nhân ái.",
+        "Gắn bó tha thiết với thiên nhiên.",
+        "Yêu chuộng cái đẹp mang tính hoành tráng, đồ sộ."
+      ],
+      "correctAnswer": "Yêu chuộng cái đẹp mang tính hoành tráng, đồ sộ.",
+      "id": 41
+    },
+    {
+      "question": " Văn học Việt Nam có một...:",
+      "examId": 22,
+      "options": [
+        "Sức sống dẻo dai, mãnh liệt.",
+        "Sức sống mạnh mẽ, bền bỉ.",
+        "Sức sống dẻo dai, bền bỉ.",
+        "Sức sống dai dẳng, bền bỉ."
+      ],
+      "correctAnswer": "Sức sống dẻo dai, mãnh liệt.",
+      "id": 42
+    },
+    {
+      "question": "Các trung tâm công nghiệp thường được biểu hiện bằng phương pháp",
+      "examId": 23,
+      "options": [
+        "chấm điểm.",
+        "đường chuyển động.",
+        "bản đồ - biểu đồ.",
+        "kí hiệu."
+      ],
+      "correctAnswer": "kí hiệu.",
+      "id": 43
+    },
+    {
+      "question": "Phương pháp bản đồ - biểu đồ thể hiện giá trị tổng cộng của một hiện tượng địa lí",
+      "examId": 23,
+      "options": [
+        "được phân bố ở cácvùng khác nhau.",
+        "trên một đơn vị lãnh thổ hành chính.",
+        "được sắp xếp thứ tự theo thời gian.",
+        "trong một khoảng thời gian nhất định."
+      ],
+      "correctAnswer": "trên một đơn vị lãnh thổ hành chính.",
+      "id": 44
+    },
+    {
+      "question": "Đối tượng nào sau đây được biểu hiện bằng phương pháp kí hiệu?",
+      "examId": 24,
+      "options": [
+        "Hải cảng.",
+        "Dòng biển.",
+        "Luồng di dân.",
+        "Hướng gió."
+      ],
+      "correctAnswer": "Hải cảng.",
+      "id": 45
+    },
+    {
+      "question": "Phương pháp nào sau đây thường được sử dụng để biểu hiện diện tích và sản lượng lúa của các tỉnh nước ta trong cùng một thời gian?",
+      "examId": 24,
+      "options": [
+        "Bản đồ - biểu đồ.",
+        " Chấm điểm.",
+        "Kí hiệu.",
+        "Kí hiệu theo đường."
+      ],
+      "correctAnswer": "Bản đồ - biểu đồ.",
+      "id": 46
+    },
+    {
+      "question": "Dạng kí hiệu nào sau đây không thuộc phương pháp kí hiệu?",
+      "examId": 25,
+      "options": [
+        "Tượng hình.",
+        "Hình học.",
+        "Điểm.",
+        " Chữ."
+      ],
+      "correctAnswer": "Điểm.",
+      "id": 47
+    },
+    {
+      "question": "Phát biểu nào sau đây không đúng với ý nghĩa của phương pháp kí hiệu?",
+      "examId": 25,
+      "options": [
+        "Thể hiện được tốc độ di chyển đối tượng.",
+        "Biểu hiện động lực phát triển đối tượng.",
+        "Xác định được vị trí của đối tượng.",
+        "Thể hiện được quy mô của đối tượng."
+      ],
+      "correctAnswer": "Thể hiện được tốc độ di chyển đối tượng.",
+      "id": 48
+    },
+    {
+      "question": "Sự phân bố các cơ sở chăn nuôi thường được biểu hiện bằng phương pháp",
+      "examId": 26,
+      "options": [
+        "kí hiệu.",
+        "chấm điểm.",
+        "bản đồ - biểu đồ.",
+        "đường chuyển động."
+      ],
+      "correctAnswer": "chấm điểm.",
+      "id": 49
+    },
+    {
+      "question": "Các tuyến giao thông đường biển thường được biểu hiện bằng phương pháp",
+      "examId": 26,
+      "options": [
+        "đường chuyển động.",
+        "chấm điểm.",
+        "kí hiệu.",
+        "bản đồ - biểu đồ."
+      ],
+      "correctAnswer": "đường chuyển động.",
+      "id": 50
+    },
+    {
+      "question": "Phương pháp kí hiệu dùng để thể hiện các đối tượng",
+      "examId": 27,
+      "options": [
+        "tập trung thành vùng rộng lớn.",
+        "phân bố phân tán, lẻ tẻ, rời rạc.",
+        "di chuyển theo các hướng bất kì.",
+        "phân bố theo những điểm cụ thể."
+      ],
+      "correctAnswer": "phân bố theo những điểm cụ thể.",
+      "id": 51
+    },
+    {
+      "question": "Giá trị xuất khẩu và nhập khẩu của các tỉnh Việt Nam trong cùng một thời gian, thường được thể hiện bằng phương pháp",
+      "examId": 27,
+      "options": [
+        "kí hiệu theo đường.",
+        "đường chuyển động.",
+        "bản đồ - biểu đồ.",
+        "chấm điểm."
+      ],
+      "correctAnswer": "bản đồ - biểu đồ.",
+      "id": 52
     }
   ],
   "userAnswers": [
     {
-      "userId": 2,
-      "examId": 1,
+      "userId": 1,
+      "examId": 15,
       "score": 10,
       "id": 1
-    },
-    {
-      "userId": 1,
-      "examId": 1,
-      "score": 5,
-      "id": 2
-    },
-    {
-      "userId": 4,
-      "examId": 1,
-      "score": 5,
-      "id": 3
     }
   ]
 }

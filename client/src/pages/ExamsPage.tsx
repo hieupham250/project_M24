@@ -37,6 +37,7 @@ export default function ExamsPage() {
     if (userLogin) {
       localStorage.removeItem("elapsedTime");
       localStorage.removeItem("timeLeft");
+      localStorage.removeItem("answers");
       navigate(`/course/examSubject/exam/question/${examId}`);
     } else {
       Swal.fire({

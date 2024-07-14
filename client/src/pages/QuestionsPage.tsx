@@ -12,7 +12,7 @@ import {
 import { getAllQuestions } from "../services/service_admin/serviceQuestion";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
-import { getAllExams } from "../services/service_admin/serviceExam";
+import { getExamById } from "../services/service_admin/serviceExam";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
@@ -26,7 +26,7 @@ export default function QuestionsPage() {
 
   const { data: exams } = useQuery({
     queryKey: ["exams", examId],
-    queryFn: () => getAllExams(examId),
+    queryFn: () => getExamById(examId),
   });
   let answersLocal = JSON.parse(localStorage.getItem("answers") || "[]");
   const [answers, setAnswers] = useState<any[]>(answersLocal || []);
@@ -121,6 +121,7 @@ export default function QuestionsPage() {
       ); // lưu thời gian trôi qua sau khi kết thúc bài thi
 
       localStorage.removeItem("timeLeft");
+      localStorage.removeItem("answers");
       navigate(`/examCompletionPage/${examId}`, {
         replace: true,
       });

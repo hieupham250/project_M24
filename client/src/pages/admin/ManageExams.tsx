@@ -160,7 +160,11 @@ export default function ManageExams() {
     if (
       formAddOrUpdateExam.title == "" ||
       formAddOrUpdateExam.description == "" ||
-      formAddOrUpdateExam.duration == ""
+      formAddOrUpdateExam.duration == "" ||
+      (exams?.data?.some(
+        (exam: Exam) => exam.title == formAddOrUpdateExam.title
+      ) &&
+        typeButton == "add")
     ) {
       setErrorTitle(true);
       setErrorDescription(true);
@@ -336,7 +340,8 @@ export default function ManageExams() {
                 (errorTitle &&
                   exams?.data?.some(
                     (exam: Exam) => exam.title == formAddOrUpdateExam.title
-                  ))
+                  ) &&
+                  typeButton == "add")
               }
               helperText={
                 errorTitle && formAddOrUpdateExam?.title?.trim() == ""
@@ -344,7 +349,8 @@ export default function ManageExams() {
                   : errorTitle &&
                     exams?.data?.some(
                       (exam: Exam) => exam.title == formAddOrUpdateExam.title
-                    )
+                    ) &&
+                    typeButton == "add"
                   ? "Tiêu đề đã tồn tại!"
                   : ""
               }

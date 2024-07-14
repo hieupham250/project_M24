@@ -171,7 +171,12 @@ export default function ManangeQuestions() {
     if (
       formAddOrUpdateQuestion.question == "" ||
       formAddOrUpdateQuestion.options.some((opt) => opt == "") ||
-      !formAddOrUpdateQuestion.correctAnswer
+      !formAddOrUpdateQuestion.correctAnswer ||
+      (questions?.data?.some(
+        (question: Question) =>
+          question.question == formAddOrUpdateQuestion.question
+      ) &&
+        typeButton == "add")
     ) {
       setErrorQuestion(true);
       setErrorOptionA(true);
@@ -341,7 +346,8 @@ export default function ManangeQuestions() {
                   questions?.data?.some(
                     (question: Question) =>
                       question.question == formAddOrUpdateQuestion.question
-                  ))
+                  ) &&
+                  typeButton == "add")
               }
               helperText={
                 errorQuestion && formAddOrUpdateQuestion?.question?.trim() == ""
@@ -350,7 +356,8 @@ export default function ManangeQuestions() {
                     questions?.data?.some(
                       (question: Question) =>
                         question.question == formAddOrUpdateQuestion.question
-                    )
+                    ) &&
+                    typeButton == "add"
                   ? "Câu hỏi đã tồn tại!"
                   : ""
               }
@@ -454,9 +461,15 @@ export default function ManangeQuestions() {
                   variant="outlined"
                   margin="normal"
                   fullWidth
-                  error={errorCorrectAnswer}
+                  error={
+                    errorCorrectAnswer &&
+                    formAddOrUpdateQuestion.correctAnswer == null
+                  }
                   helperText={
-                    errorCorrectAnswer ? "Đáp án đúng không được để trống" : ""
+                    errorCorrectAnswer &&
+                    formAddOrUpdateQuestion.correctAnswer == null
+                      ? "Đáp án đúng không được để trống"
+                      : ""
                   }
                 />
               )}

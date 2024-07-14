@@ -107,15 +107,17 @@ export default function Register() {
     e.preventDefault();
     const currentDate = new Date();
     if (
-      addUser.fullName == "" &&
-      addUser.email == "" &&
-      addUser.password == "" &&
-      addUser.dayOfBirth == ""
+      addUser.fullName == "" ||
+      addUser.email == "" ||
+      addUser.password == ""
     ) {
       setErrorFullName(true);
-      setErrorDayOfBirth(true);
       setErrorEmail(true);
       setErrorPassword(true);
+      return;
+    }
+    if (addUser.dayOfBirth == "") {
+      setErrorDayOfBirth(true);
       return;
     }
     if (!validateEmail(addUser.email)) {

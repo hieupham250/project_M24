@@ -134,7 +134,11 @@ export default function ManageCourses() {
     const currentDate = new Date();
     if (
       formAddOrUpdateCourse.title == "" ||
-      formAddOrUpdateCourse.description == ""
+      formAddOrUpdateCourse.description == "" ||
+      (courses?.data?.some(
+        (course: Course) => course.title == formAddOrUpdateCourse.title
+      ) &&
+        typeButton == "add")
     ) {
       setErrorTitle(true);
       setErrorDescription(true);
@@ -301,7 +305,8 @@ export default function ManageCourses() {
                   courses?.data?.some(
                     (course: Course) =>
                       course.title == formAddOrUpdateCourse.title
-                  ))
+                  ) &&
+                  typeButton == "add")
               }
               helperText={
                 errorTitle && formAddOrUpdateCourse?.title?.trim() == ""
@@ -310,7 +315,8 @@ export default function ManageCourses() {
                     courses?.data?.some(
                       (course: Course) =>
                         course.title == formAddOrUpdateCourse.title
-                    )
+                    ) &&
+                    typeButton == "add"
                   ? "Tiêu đề đã tồn tại!"
                   : ""
               }

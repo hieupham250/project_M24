@@ -101,7 +101,7 @@ export default function ManageUsers() {
   }, [users]);
 
   const columns = [
-    { field: "serialNumber", headerName: "STT", width: 40 },
+    { field: "serialNumber", headerName: "STT", width: 70 },
     { field: "fullName", headerName: "Họ tên", width: 170 },
     { field: "email", headerName: "Email", width: 215 },
     { field: "phone", headerName: "Số điện thoại", width: 150 },
@@ -254,15 +254,17 @@ export default function ManageUsers() {
     e.preventDefault();
     const currentDate = new Date();
     if (
-      addUser.fullName == "" &&
-      addUser.email == "" &&
-      addUser.password == "" &&
-      addUser.dayOfBirth == ""
+      addUser.fullName == "" ||
+      addUser.email == "" ||
+      addUser.password == ""
     ) {
       setErrorFullName(true);
-      setErrorDayOfBirth(true);
       setErrorEmail(true);
       setErrorPassword(true);
+      return;
+    }
+    if (addUser.dayOfBirth == "") {
+      setErrorDayOfBirth(true);
       return;
     }
     if (!validateEmail(addUser.email)) {
