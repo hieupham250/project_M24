@@ -260,7 +260,6 @@ export default function ManageExamSubjects() {
             },
           }}
           pageSizeOptions={[10, 15]}
-          checkboxSelection
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
           disableColumnSelector={true}
           disableRowSelectionOnClick

@@ -68,7 +68,7 @@ export default function ExamCompletionPage() {
             userLogin?.id,
             examId
           );
-          if (existingAnswers.data.length === 0) {
+          if (existingAnswers?.data?.length === 0) {
             // Nếu chưa có dữ liệu thì tạo mới
             const newUserAnswer = {
               userId: userLogin?.id,
@@ -78,7 +78,7 @@ export default function ExamCompletionPage() {
             await createUserAnswer(newUserAnswer);
           } else {
             // Nếu đã có dữ liệu thì cập nhật lại score
-            const userAnswerId = existingAnswers.data[0].id; // Lấy id của câu trả lời của người dùng
+            const userAnswerId = existingAnswers?.data[0]?.id; // Lấy id của câu trả lời của người dùng
             const updatedUserAnswer = {
               ...existingAnswers.data[0],
               score: score,

@@ -11,7 +11,14 @@ export const getAllQuestions = async (
     throw new Error(`Error fetching questions: ${error}`);
   }
 };
-
+export const getAllQuestionSelect = async (): Promise<AxiosResponse<any>> => {
+  try {
+    const response = await baseUrl.get(`/questions`);
+    return response;
+  } catch (error) {
+    throw new Error(`Error fetching questions: ${error}`);
+  }
+};
 export const createQuestion = async (
   question: any
 ): Promise<AxiosResponse<any>> => {
