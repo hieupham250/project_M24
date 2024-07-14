@@ -38,6 +38,19 @@
       "role": "User",
       "created_at": "2024-07-13T02:17:54.817Z",
       "id": 3
+    },
+    {
+      "fullName": "Nguyễn Thanh Sang",
+      "avatar": "",
+      "email": "sang@gmail.com",
+      "phone": "",
+      "address": "",
+      "password": "$2a$10$veWDMsRPMu6PlOUTIvUI3.MKdV.GGEWXc/pGp.omMNQ6Be9hUKvv2",
+      "dayOfBirth": "2004-07-26",
+      "status": true,
+      "role": "User",
+      "created_at": "2024-07-14T10:17:05.333Z",
+      "id": 4
     }
   ],
   "courses": [
@@ -100,7 +113,12 @@
     {
       "question": "Phương trình có nghiệm X=? X2-2X+1=0",
       "examId": 1,
-      "options": ["0", "1", "2", "3"],
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
       "correctAnswer": "1",
       "id": 1
     },
@@ -129,6 +147,12 @@
       "examId": 1,
       "score": 5,
       "id": 2
+    },
+    {
+      "userId": 4,
+      "examId": 1,
+      "score": 5,
+      "id": 3
     }
   ]
 }

@@ -28,8 +28,8 @@ export default function QuestionsPage() {
     queryKey: ["exams", examId],
     queryFn: () => getAllExams(examId),
   });
-
-  const [answers, setAnswers] = useState<any[]>([]);
+  let answersLocal = JSON.parse(localStorage.getItem("answers") || "[]");
+  const [answers, setAnswers] = useState<any[]>(answersLocal || []);
   const [timeLeft, setTimeLeft] = useState<number>(0);
   const navigate = useNavigate();
 
@@ -39,6 +39,7 @@ export default function QuestionsPage() {
     const newAnswers = [...answers];
     newAnswers[index] = event.target.value;
     setAnswers(newAnswers);
+    localStorage.setItem("answers", JSON.stringify(newAnswers));
   };
 
   // lấy thời gian từ exam
@@ -95,6 +96,7 @@ export default function QuestionsPage() {
         ); // lưu thời gian trôi qua sau khi kết thúc bài thi
 
         localStorage.removeItem("timeLeft");
+        localStorage.removeItem("answers");
 
         navigate(`/examCompletionPage/${examId}`, {
           replace: true,
