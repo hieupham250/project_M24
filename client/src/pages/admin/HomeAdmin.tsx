@@ -98,7 +98,7 @@ export default function HomeAdmin() {
               sx={{ width: 25, height: 25 }}
             />
             <Typography variant="body1" sx={{ marginLeft: 1 }}>
-              {userAdminLogin ? userAdminLogin.fullName : ""}
+              {userAdminLogin ? userAdminLogin?.fullName : ""}
             </Typography>
             <IconButton color="inherit" onClick={handleMenuOpen}>
               <MoreVert />

@@ -37,7 +37,7 @@ export default function ExamHistory() {
       return [];
     }
     return userAnswers?.data
-      ?.filter((userAnswer: any) => userAnswer.userId == userLogin.id)
+      ?.filter((userAnswer: any) => userAnswer.userId == userLogin?.id)
       .map((userAnswer: any, index: number) => ({
         serialNumber: index + 1,
         id: userAnswer.id,

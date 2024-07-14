@@ -234,10 +234,10 @@ export default function ManageCourses() {
           columns={columns}
           initialState={{
             pagination: {
-              paginationModel: { page: 0, pageSize: 10 },
+              paginationModel: { page: 0, pageSize: 5 },
             },
           }}
-          pageSizeOptions={[10, 15]}
+          pageSizeOptions={[5, 10]}
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
           disableColumnSelector={true}
           disableRowSelectionOnClick
