@@ -10,8 +10,13 @@ import ExamSubjectsPage from "./ExamSubjectsPage";
 import ExamsPage from "./ExamsPage";
 import QuestionsPage from "./QuestionsPage";
 import ExamCompletionPage from "./ExamCompletionPage";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    document.title = "Thi trắc nghiệm online";
+  }, []);
+
   const carouselItems = [
     {
       imgPath: "/src/assets/images/banners/banner1.jpg",

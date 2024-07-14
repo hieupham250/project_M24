@@ -26,6 +26,7 @@ import Footer from "../layout/Footer";
 
 export default function Login() {
   useEffect(() => {
+    document.title = "Đăng nhập";
     // kiểm tra xem nếu nhập url là /login trên cookie có giá trị thì chuyển sang trang home hoặc admin thì sang admin
     const userCookie = Cookies.get("user");
     if (userCookie) {

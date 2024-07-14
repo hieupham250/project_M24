@@ -25,11 +25,29 @@ import bcrypt from "bcryptjs";
 import { validateEmail } from "../util/validateData";
 import baseUrl from "../api";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { User } from "../interfaces";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
+import Cookies from "js-cookie";
 export default function Register() {
+  useEffect(() => {
+    document.title = "Đăng ký";
+    const userCookie = Cookies.get("user");
+    if (userCookie) {
+      let user = JSON.parse(userCookie);
+      if (user.role == "User") {
+        navigate(`/`, {
+          replace: true,
+        });
+      } else {
+        navigate(`/admin`, {
+          replace: true,
+        });
+      }
+    }
+  }, []);
+
   const { data: users } = useQuery({
     queryKey: ["users"],
     queryFn: getAllUsers,
@@ -133,6 +151,7 @@ export default function Register() {
         showConfirmButton: false,
         timer: 600,
       });
+      Cookies.remove("user");
       setAddUser({
         fullName: "",
         avatar: "",
