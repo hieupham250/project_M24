@@ -107,7 +107,7 @@
     {
       "title": "Khóa luyện thi học kỳ 1 cho lớp 12",
       "description": "Khóa luyện thi học kỳ 1 cho lớp 12",
-      "created_at": "2024-07-14T13:53:38.428Z",
+      "created_at": "2024-07-14T15:24:43.684Z",
       "id": 5
     }
   ],
@@ -1012,6 +1012,18 @@
       "examId": 15,
       "score": 10,
       "id": 1
+    },
+    {
+      "userId": 2,
+      "examId": 15,
+      "score": 10,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "examId": 1,
+      "score": 10,
+      "id": 3
     }
   ]
 }

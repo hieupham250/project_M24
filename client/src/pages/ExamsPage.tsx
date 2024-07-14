@@ -64,10 +64,7 @@ export default function ExamsPage() {
   };
 
   const startIndex = (page - 1) * examsPerPage;
-  const visibleCourses = exams?.data?.slice(
-    startIndex,
-    startIndex + examsPerPage
-  );
+  const visibleExam = exams?.data?.slice(startIndex, startIndex + examsPerPage);
 
   return (
     <>
@@ -86,7 +83,7 @@ export default function ExamsPage() {
               Tất cả đề thi
             </Typography>
             <Grid container spacing={2}>
-              {visibleCourses?.map((exam: any, index: any) => (
+              {visibleExam?.map((exam: any, index: any) => (
                 <Grid item xs={6} key={index}>
                   <Typography
                     sx={{
