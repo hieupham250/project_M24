@@ -22,7 +22,7 @@
       "password": "$2a$10$rvp9bRCNOO5L8hcPP4y26uB9chlRIrbbNk10vERGFoD8N77q9ze6W",
       "dayOfBirth": "2004-09-18",
       "status": true,
-      "role": "User",
+      "role": "Admin",
       "created_at": "2024-07-13T02:15:40.923Z",
       "id": 2
     },
@@ -56,10 +56,10 @@
       "fullName": "Cao Thị Mỹ Tâm",
       "avatar": "",
       "email": "tam@gmail.com",
-      "phone": "",
-      "address": "",
+      "phone": "0846462456",
+      "address": "Đà Nẵng",
       "password": "$2a$10$yEquHWtBcEuoC7u7EfR5cuoDOZhfsvRDoAORzJaerh1A.Eqy63Rry",
-      "dayOfBirth": "2004-07-27",
+      "dayOfBirth": "2004-07-25",
       "status": true,
       "role": "User",
       "created_at": "2024-07-14T15:07:50.166Z",
@@ -77,6 +77,19 @@
       "role": "User",
       "created_at": "2024-07-14T15:08:33.760Z",
       "id": 6
+    },
+    {
+      "fullName": "Phạm Trung Hiếu",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/project-react-8dc1e.appspot.com/o/avatars%2Favt3.jpg?alt=media&token=e14b36fc-1f0b-4316-a922-d5c859c3e668",
+      "email": "ptrunghieu111@gmail.com",
+      "phone": "0846462646",
+      "address": "Hà Nội",
+      "password": "$2a$10$./0Bu.nMEQaA67iRK/bBUulhbBOahB9mgzVb4.mWslFbZlL7ZyDBi",
+      "dayOfBirth": "2004-07-25",
+      "status": true,
+      "role": "User",
+      "created_at": "2024-07-15T06:12:44.055Z",
+      "id": 7
     }
   ],
   "courses": [
@@ -109,6 +122,12 @@
       "description": "Khóa luyện thi học kỳ 1 cho lớp 12",
       "created_at": "2024-07-14T15:24:43.684Z",
       "id": 5
+    },
+    {
+      "title": "Khóa luyện thi cho học sinh lớp 1",
+      "description": "Khóa luyện thi cho học sinh lớp 1",
+      "created_at": "2024-07-15T06:23:00.461Z",
+      "id": 6
     }
   ],
   "examSubjects": [
@@ -160,6 +179,13 @@
       "courseId": 3,
       "created_at": "2024-07-14T13:55:18.116Z",
       "id": 7
+    },
+    {
+      "title": "Môn toán",
+      "description": "Môn toán",
+      "courseId": 6,
+      "created_at": "2024-07-15T06:24:38.544Z",
+      "id": 8
     }
   ],
   "exams": [
@@ -378,6 +404,14 @@
       "examSubjectId": 7,
       "created_at": "2024-07-14T14:50:14.336Z",
       "id": 27
+    },
+    {
+      "title": "Đề thi mới",
+      "description": "Đề thi mới",
+      "duration": 1,
+      "examSubjectId": 8,
+      "created_at": "2024-07-15T06:25:11.918Z",
+      "id": 28
     }
   ],
   "questions": [
@@ -1004,26 +1038,32 @@
       ],
       "correctAnswer": "bản đồ - biểu đồ.",
       "id": 52
+    },
+    {
+      "question": "1 + 2 = ?",
+      "examId": 28,
+      "options": [
+        "3",
+        "2",
+        "1",
+        "6"
+      ],
+      "correctAnswer": "3",
+      "id": 53
     }
   ],
   "userAnswers": [
     {
-      "userId": 1,
-      "examId": 15,
-      "score": 10,
+      "userId": 7,
+      "examId": 3,
+      "score": 0,
       "id": 1
     },
     {
-      "userId": 2,
-      "examId": 15,
-      "score": 10,
+      "userId": 7,
+      "examId": 9,
+      "score": 5,
       "id": 2
-    },
-    {
-      "userId": 2,
-      "examId": 1,
-      "score": 10,
-      "id": 3
     }
   ]
 }

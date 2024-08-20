@@ -90,11 +90,19 @@ export default function UserProfile() {
       editUser.phone == "" ||
       editUser.address == ""
     ) {
+      if (editUser.dayOfBirth == "") {
+        setErrorDayOfBirth(true);
+      }
       setErrorFullName(true);
       setErrorPhone(true);
       setErrorAddress(true);
       return;
     }
+
+    // if (editUser.dayOfBirth == "") {
+    //   setErrorDayOfBirth(true);
+    //   return;
+    // }
 
     try {
       Swal.fire({

@@ -163,7 +163,7 @@ export default function ExamSubjectsPage() {
               />
             </Grid>
 
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <Button
                 sx={{ width: "100%" }}
                 variant="contained"
@@ -171,7 +171,7 @@ export default function ExamSubjectsPage() {
               >
                 Bỏ lọc
               </Button>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
       </Grid>

@@ -4,17 +4,32 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import CoursesPage from "./CoursesPage";
 import ExamSubjectsPage from "./ExamSubjectsPage";
 import ExamsPage from "./ExamsPage";
 import QuestionsPage from "./QuestionsPage";
 import ExamCompletionPage from "./ExamCompletionPage";
 import { useEffect } from "react";
+import Cookies from "js-cookie";
 
 export default function Home() {
+  const navigate = useNavigate();
   useEffect(() => {
     document.title = "Thi trắc nghiệm online";
+    // const userCookie = Cookies.get("user");
+    // if (userCookie) {
+    //   let user = JSON.parse(userCookie);
+    //   if (user.role == "User") {
+    //     navigate(`/`, {
+    //       replace: true,
+    //     });
+    //   } else {
+    //     navigate(`/admin`, {
+    //       replace: true,
+    //     });
+    //   }
+    // }
   }, []);
 
   const carouselItems = [

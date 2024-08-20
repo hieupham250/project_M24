@@ -166,6 +166,9 @@ export default function ManageExams() {
       ) &&
         typeButton == "add")
     ) {
+      if (Number(formAddOrUpdateExam.duration) < 15) {
+        setErrorDescription(true);
+      }
       setErrorTitle(true);
       setErrorDescription(true);
       setErrorDuration(true);
@@ -382,12 +385,16 @@ export default function ManageExams() {
               onChange={handleInputOnchange}
               error={
                 (errorDuration && formAddOrUpdateExam?.duration == "") ||
-                (errorDuration && isNaN(Number(formAddOrUpdateExam.duration)))
+                (errorDuration &&
+                  isNaN(Number(formAddOrUpdateExam.duration))) ||
+                (errorDuration && Number(formAddOrUpdateExam?.duration) < 15)
               }
               helperText={
                 (errorDuration && formAddOrUpdateExam?.duration == "") ||
                 (errorDuration && isNaN(Number(formAddOrUpdateExam.duration)))
                   ? "Thời gian không hợp lệ!"
+                  : errorDuration && Number(formAddOrUpdateExam?.duration) > 15
+                  ? "thời gian phỉa nhỏ hơn 15"
                   : ""
               }
             />

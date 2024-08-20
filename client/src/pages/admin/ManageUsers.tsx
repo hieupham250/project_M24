@@ -258,15 +258,18 @@ export default function ManageUsers() {
       addUser.email == "" ||
       addUser.password == ""
     ) {
+      if (addUser.dayOfBirth == "") {
+        setErrorDayOfBirth(true);
+      }
       setErrorFullName(true);
       setErrorEmail(true);
       setErrorPassword(true);
       return;
     }
-    if (addUser.dayOfBirth == "") {
-      setErrorDayOfBirth(true);
-      return;
-    }
+    // if (addUser.dayOfBirth == "") {
+    //   setErrorDayOfBirth(true);
+    //   return;
+    // }
     if (!validateEmail(addUser.email)) {
       setErrorEmail(true);
       return;

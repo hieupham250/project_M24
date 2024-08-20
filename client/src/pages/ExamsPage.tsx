@@ -190,7 +190,7 @@ export default function ExamsPage() {
                 onChange={(e) => setExamSearch(e.target.value)}
               />
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <Button
                 sx={{ width: "100%" }}
                 variant="contained"
@@ -198,7 +198,7 @@ export default function ExamsPage() {
               >
                 Bỏ lọc
               </Button>
-            </Grid>
+            </Grid> */}
           </Grid>
         </Grid>
       </Grid>
