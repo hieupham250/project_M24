@@ -13,35 +13,39 @@ export interface User {
 }
 
 export interface Course {
-  id: number;
+  id?: number;
   title: string;
   description: string;
+  created_at: string;
 }
 
 export interface ExamSubject {
-  id: number;
+  id?: number;
   title: string;
   description: string;
-  courseId: number;
+  courseId?: number;
+  created_at: string;
 }
 
 export interface Exam {
   id: number;
   title: string;
+  description: string;
   duration: 90;
   examSubjectId: number;
+  created_at: string;
 }
 
 export interface Question {
-  id: number;
+  id?: number;
   question: string;
   examId: number;
-  options: [];
-  answer: string;
+  options: string[];
+  correctAnswer: string;
 }
 
 export interface UserAnswer {
-  id: number;
+  id?: number;
   userId: number;
   examId: number;
   score: number;

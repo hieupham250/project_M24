@@ -101,7 +101,7 @@ export default function ManageUsers() {
   }, [users]);
 
   const columns = [
-    { field: "serialNumber", headerName: "STT", width: 40 },
+    { field: "serialNumber", headerName: "STT", width: 70 },
     { field: "fullName", headerName: "Họ tên", width: 170 },
     { field: "email", headerName: "Email", width: 215 },
     { field: "phone", headerName: "Số điện thoại", width: 150 },
@@ -254,17 +254,22 @@ export default function ManageUsers() {
     e.preventDefault();
     const currentDate = new Date();
     if (
-      addUser.fullName == "" &&
-      addUser.email == "" &&
-      addUser.password == "" &&
-      addUser.dayOfBirth == ""
+      addUser.fullName == "" ||
+      addUser.email == "" ||
+      addUser.password == ""
     ) {
+      if (addUser.dayOfBirth == "") {
+        setErrorDayOfBirth(true);
+      }
       setErrorFullName(true);
-      setErrorDayOfBirth(true);
       setErrorEmail(true);
       setErrorPassword(true);
       return;
     }
+    // if (addUser.dayOfBirth == "") {
+    //   setErrorDayOfBirth(true);
+    //   return;
+    // }
     if (!validateEmail(addUser.email)) {
       setErrorEmail(true);
       return;
@@ -293,7 +298,6 @@ export default function ManageUsers() {
       await createUser(newUserData);
       queryClient.invalidateQueries("users");
       Swal.fire({
-        position: "top-end",
         icon: "success",
         title: "Bạn đã thêm tài khoản thành công!",
         showConfirmButton: false,
@@ -554,11 +558,10 @@ export default function ManageUsers() {
           columns={columns}
           initialState={{
             pagination: {
-              paginationModel: { page: 0, pageSize: 10 },
+              paginationModel: { page: 0, pageSize: 5 },
             },
           }}
-          pageSizeOptions={[10, 15]}
-          checkboxSelection
+          pageSizeOptions={[5, 10]}
           localeText={viVN.components.MuiDataGrid.defaultProps.localeText}
           disableColumnSelector={true}
         />

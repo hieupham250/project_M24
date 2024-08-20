@@ -22,6 +22,10 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import Swal from "sweetalert2";
 import ManageUsers from "./ManageUsers";
+import ManageCourses from "./ManageCourses";
+import ManageExamSubjects from "./ManageExamSubjects";
+import ManageExams from "./ManageExams";
+import ManangeQuestions from "./ManangeQuestions";
 
 export default function HomeAdmin() {
   const [userAdminLogin, setUserAdminLogin] = useState<any>();
@@ -29,9 +33,20 @@ export default function HomeAdmin() {
   useEffect(() => {
     const userCookie = Cookies.get("user");
     if (userCookie) {
-      setUserAdminLogin(JSON.parse(userCookie));
+      let user = JSON.parse(userCookie);
+      if (user.role == "User") {
+        navigate(`/404`, {
+          replace: true,
+        });
+      }
+      setUserAdminLogin(user);
+    } else {
+      navigate(`/404`, {
+        replace: true,
+      });
     }
   }, []);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(true);
   const handleMenuOpen = (event: any) => {
@@ -83,7 +98,7 @@ export default function HomeAdmin() {
               sx={{ width: 25, height: 25 }}
             />
             <Typography variant="body1" sx={{ marginLeft: 1 }}>
-              {userAdminLogin ? userAdminLogin.fullName : ""}
+              {userAdminLogin ? userAdminLogin?.fullName : ""}
             </Typography>
             <IconButton color="inherit" onClick={handleMenuOpen}>
               <MoreVert />
@@ -118,7 +133,7 @@ export default function HomeAdmin() {
               </ListItemButton>
             </ListItem>
             <ListItem>
-              <ListItemButton component={NavLink} to="/admin/course">
+              <ListItemButton component={NavLink} to="/admin/courses">
                 <ListItemIcon>
                   <LibraryBooksOutlined />
                 </ListItemIcon>
@@ -137,6 +152,22 @@ export default function HomeAdmin() {
       <Box sx={{ m: 3 }}>
         <Routes>
           <Route path="users" element={<ManageUsers></ManageUsers>}></Route>
+          <Route
+            path="courses"
+            element={<ManageCourses></ManageCourses>}
+          ></Route>
+          <Route
+            path="courses/examSubjects/:courseId"
+            element={<ManageExamSubjects></ManageExamSubjects>}
+          ></Route>
+          <Route
+            path="courses/examSubjects/exams/:examSubjectId"
+            element={<ManageExams></ManageExams>}
+          ></Route>
+          <Route
+            path="courses/examSubjects/exams/questions/:examId"
+            element={<ManangeQuestions></ManangeQuestions>}
+          ></Route>
         </Routes>
       </Box>
     </>

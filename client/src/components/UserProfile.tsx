@@ -85,6 +85,25 @@ export default function UserProfile() {
 
   const handleEditSubmit = async (e: any) => {
     e.preventDefault();
+    if (
+      editUser.fullName == "" ||
+      editUser.phone == "" ||
+      editUser.address == ""
+    ) {
+      if (editUser.dayOfBirth == "") {
+        setErrorDayOfBirth(true);
+      }
+      setErrorFullName(true);
+      setErrorPhone(true);
+      setErrorAddress(true);
+      return;
+    }
+
+    // if (editUser.dayOfBirth == "") {
+    //   setErrorDayOfBirth(true);
+    //   return;
+    // }
+
     try {
       Swal.fire({
         title: `Bạn có muốn thay đổi thông tin không?`,
@@ -175,9 +194,9 @@ export default function UserProfile() {
               variant="outlined"
               value={editUser.fullName || ""}
               onChange={handleInputOnChange}
-              error={errorFullName && editUser.fullName.trim() === ""}
+              error={errorFullName && editUser?.fullName.trim() === ""}
               helperText={
-                errorFullName && editUser.fullName.trim() === ""
+                errorFullName && editUser?.fullName.trim() === ""
                   ? "Họ tên không hợp lệ!"
                   : ""
               }
@@ -226,7 +245,7 @@ export default function UserProfile() {
               value={editUser.phone || ""}
               onChange={handleInputOnChange}
               error={
-                (errorPhone && editUser.phone.trim() === "") ||
+                (errorPhone && editUser?.phone.trim() === "") ||
                 (errorPhone && !isVietnamesePhoneNumber(editUser.phone))
               }
               size="small"
@@ -235,7 +254,7 @@ export default function UserProfile() {
                 shrink: true,
               }}
               helperText={
-                (errorPhone && editUser.phone.trim() === "") ||
+                (errorPhone && editUser?.phone.trim() === "") ||
                 (errorPhone && !isVietnamesePhoneNumber(editUser.phone))
                   ? "Số điện thoại không hợp lệ!"
                   : ""
@@ -247,7 +266,7 @@ export default function UserProfile() {
               variant="outlined"
               value={editUser.address || ""}
               onChange={handleInputOnChange}
-              error={errorAddress && editUser.address.trim() === ""}
+              error={errorAddress && editUser?.address.trim() === ""}
               size="small"
               sx={{ width: "100%", marginBottom: "20px" }}
               InputLabelProps={{

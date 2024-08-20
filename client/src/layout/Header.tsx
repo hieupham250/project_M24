@@ -106,6 +106,9 @@ export default function Header() {
                   <MenuItem onClick={() => navigate("/profile")}>
                     Tài khoản của tôi
                   </MenuItem>
+                  <MenuItem onClick={() => navigate("/examHistory")}>
+                    Lịch sử bài thi
+                  </MenuItem>
                   <MenuItem onClick={handleLogout}>Đăng xuất</MenuItem>
                 </Menu>
               </Box>
